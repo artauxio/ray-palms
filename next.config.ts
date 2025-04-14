@@ -5,12 +5,14 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   images: {
+    domains: ["images.unsplash.com"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "**",
       },
     ],
+    unoptimized: true,
   },
 };
 

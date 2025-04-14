@@ -1,84 +1,119 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import WhatsAppIcon from "./WhatsappIcon";
 
 type Props = {};
 
 const Header = (props: Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isRotated, setIsRotated] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsRotated(menuOpen);
+  }, [menuOpen]);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <header className={`fixed top-0 w-full border-b z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-lime-600/80 backdrop-blur-md' 
-        : 'bg-lime-600'
-    }`}>
+    <header
+      className={`fixed top-0 w-full border-b z-50 transition-all duration-300 ${
+        isScrolled ? "bg-lime-600/80 backdrop-blur-md" : "bg-lime-600"
+      }`}
+    >
       <nav className="container mx-auto px-5 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-10">
-          <Link href="/">
-            <p className="text-2xl font-bold text-white">Ray Palms</p>
-          </Link>
-        </div>
-
-        {/* Navigation Menu */}
-        <div className="hidden md:flex items-center gap-10">
-          <Link
-            href="/"
-            className="text-white hover:text-lime-100 transition-colors"
-          >
-            Home
-          </Link>
-          <Link
-            href="/amenities"
-            className="text-white hover:text-lime-100 transition-colors"
-          >
-            Amenities
-          </Link>
-          <Link
-            href="/gallery"
-            className="text-white hover:text-lime-100 transition-colors"
-          >
-            Gallery
-          </Link>
-          <Link
-            href="/team"
-            className="text-white hover:text-lime-100 transition-colors"
-          >
-            Team
-          </Link>
-          <Link
-            href="/contact"
-            className="text-white hover:text-lime-100 transition-colors"
-          >
-            Contact
-          </Link>
-        </div>
-
-        {/* WhatsApp Button */}
-        <Link
-          href="https://wa.me/PHONE_NUMBER"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
-        >
-          <WhatsAppIcon className="w-5 h-5" />
-          Chat with us
+        {/* Logo */}
+        <Link href="/">
+          <p className="text-2xl font-bold text-white">Ray Palms</p>
         </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-10">
+          {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
+              className="text-white hover:text-lime-100 transition-colors"
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+
+        {/* WhatsApp + Mobile Menu Toggle */}
+        <div className="flex items-center gap-4 md:gap-6">
+          <Link
+            href="https://wa.me/PHONE_NUMBER"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
+          >
+            <WhatsAppIcon className="w-5 h-5" />
+            Chat with us
+          </Link>
+
+          {/* Menu Toggle Button */}
+          <span
+            className="w-8 h-8 rounded-full flex justify-center items-center hover:bg-black/10 cursor-pointer transition-transform duration-300 md:hidden"
+            onClick={handleMenuToggle}
+          >
+            {menuOpen ? (
+              <X
+                className={`w-7 h-7 text-white transition-transform duration-300 ${
+                  isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
+                }`}
+              />
+            ) : (
+              <Menu
+                className={`w-7 h-7 text-white transition-transform duration-300 ${
+                  isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
+                }`}
+              />
+            )}
+          </span>
+        </div>
       </nav>
+
+      {/* Animated Mobile Nav Menu */}
+      <div
+        className={`md:hidden bg-lime-600 text-white px-5 overflow-hidden transform transition-all duration-500 ease-in-out ${
+          menuOpen ? "max-h-[500px] opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"
+        }`}
+      >
+        <div className="pt-2 pb-4 space-y-3">
+          {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
+              className="block text-base font-medium hover:text-lime-100 transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+            </Link>
+          ))}
+          <Link
+            href="https://wa.me/PHONE_NUMBER"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
+          >
+            <WhatsAppIcon className="w-5 h-5" />
+            Chat with us
+          </Link>
+        </div>
+      </div>
     </header>
   );
 };
