@@ -29,7 +29,7 @@ const Header = (props: Props) => {
 
   return (
     <header
-      className={`fixed top-0 w-full border-b z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full border-b z-50 transition-all duration-300 border-none ${
         isScrolled ? "bg-lime-600/80 backdrop-blur-md" : "bg-lime-600"
       }`}
     >
