@@ -41,12 +41,12 @@ const FloorPlans = () => {
         </h2>
 
         {/* Floor Plan Switcher Buttons */}
-        <div className="flex justify-center gap-4 mb-8 flex-wrap">
+        <div className="flex justify-center gap-4 mb-8 flex-row">
           {(["1bhk", "2bhk"] as const).map((planKey) => (
             <button
               key={planKey}
               onClick={() => setSelectedPlan(planKey)}
-              className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg font-medium transition-all duration-200 ease-in-out shadow-sm active:scale-95 focus:outline-none ${
+              className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg font-medium transition-all duration-200 ease-in-out shadow-sm active:scale-95 focus:outline-none md:w-full ${
                 selectedPlan === planKey
                   ? "bg-green-600 text-white"
                   : "bg-gray-200 text-gray-800 hover:bg-green-100"
@@ -69,7 +69,7 @@ const FloorPlans = () => {
           <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-green-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95"
+              className="bg-green-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full"
             >
               {label}
             </button>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import WhatsAppIcon from "./WhatsappIcon";
+import Container from "./Container";
 
 type Props = {};
 
@@ -33,70 +34,89 @@ const Header = (props: Props) => {
         isScrolled ? "bg-lime-600/80 backdrop-blur-md" : "bg-lime-600"
       }`}
     >
-      <nav className="container mx-auto px-5 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/">
-          <p className="text-2xl font-bold text-white">Ray Palms</p>
-        </Link>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
-          {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
-              className="text-white hover:text-lime-100 transition-colors"
-            >
-              {item}
-            </Link>
-          ))}
-        </div>
-
-        {/* WhatsApp + Mobile Menu Toggle */}
-        <div className="flex items-center gap-4 md:gap-6">
-          <Link
-            href="https://wa.me/PHONE_NUMBER"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
-          >
-            <WhatsAppIcon className="w-5 h-5" />
-            Chat with us
+      <Container>
+        <nav className="h-16 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/">
+            <p className="text-2xl font-bold text-white">Ray Palms</p>
           </Link>
 
-          {/* Menu Toggle Button */}
-          <span
-            className="w-8 h-8 rounded-full flex justify-center items-center hover:bg-black/10 cursor-pointer transition-transform duration-300 md:hidden"
-            onClick={handleMenuToggle}
-          >
-            {menuOpen ? (
-              <X
-                className={`w-7 h-7 text-white transition-transform duration-300 ${
-                  isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-10">
+            {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
+              <Link
+                key={item}
+                href={`/${
+                  item.toLowerCase() === "home" ? "" : item.toLowerCase()
                 }`}
-              />
-            ) : (
-              <Menu
-                className={`w-7 h-7 text-white transition-transform duration-300 ${
-                  isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
-                }`}
-              />
-            )}
-          </span>
-        </div>
-      </nav>
+                className="text-white hover:text-lime-100 transition-colors"
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+
+          {/* WhatsApp + Mobile Menu Toggle */}
+          <div className="flex items-center gap-2 md:gap-6">
+            {/* WhatsApp Button for Mobile */}
+            <Link
+              href="https://wa.me/PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex md:hidden justify-center items-center w-8 h-8 rounded-full bg-white hover:bg-lime-100"
+            >
+              <WhatsAppIcon className="w-5 h-5 text-lime-600" />
+            </Link>
+
+            {/* WhatsApp Button for Desktop */}
+            <Link
+              href="https://wa.me/PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+              Chat with us
+            </Link>
+
+            {/* Menu Toggle Button */}
+            <span
+              className="w-8 h-8 rounded-full flex justify-center items-center hover:bg-black/10 cursor-pointer transition-transform duration-300 md:hidden"
+              onClick={handleMenuToggle}
+            >
+              {menuOpen ? (
+                <X
+                  className={`w-7 h-7 text-white transition-transform duration-300 ${
+                    isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
+                  }`}
+                />
+              ) : (
+                <Menu
+                  className={`w-7 h-7 text-white transition-transform duration-300 ${
+                    isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
+                  }`}
+                />
+              )}
+            </span>
+          </div>
+        </nav>
+      </Container>
 
       {/* Animated Mobile Nav Menu */}
       <div
-        className={`md:hidden bg-lime-600 text-white px-5 overflow-hidden transform transition-all duration-500 ease-in-out ${
-          menuOpen ? "max-h-[500px] opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"
+        className={`md:hidden bg-lime-600/80 text-white px-5 overflow-hidden transform transition-all duration-500 ease-in-out ${
+          menuOpen
+            ? "max-h-[500px] opacity-100 scale-100"
+            : "max-h-0 opacity-0 scale-95"
         }`}
       >
         <div className="pt-2 pb-4 space-y-3">
           {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
             <Link
               key={item}
-              href={`/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`}
+              href={`/${
+                item.toLowerCase() === "home" ? "" : item.toLowerCase()
+              }`}
               className="block text-base font-medium hover:text-lime-100 transition-colors"
               onClick={() => setMenuOpen(false)}
             >

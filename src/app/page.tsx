@@ -7,6 +7,8 @@ import AmenitiesSection from "@/components/AmenitiesSection";
 import GalleryCarousel from "@/components/Carousel/GalleryCarousel";
 import FloorPlans from "@/components/FloorPlans";
 import ConnectivitySection from "@/components/ConnectivitySection";
+import EMICalculator from "@/components/EMICalculator";
+import GoogleMapLocation from "@/components/GoogleMapLocation";
 
 const images = [
   {
@@ -35,7 +37,9 @@ export default function Home() {
       {/* ✅ GALLERY CAROUSEL SECTION */}
       <GalleryCarousel />
       <FloorPlans />
+      <EMICalculator />
       <ConnectivitySection />
+      <GoogleMapLocation />
 
       {/* <section className="bg-[#f1fcf6] py-10">
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-10">

@@ -7,6 +7,9 @@ import {
   Bus,
   ShoppingCart,
   UtensilsCrossed,
+  BriefcaseBusiness,
+  Dumbbell,
+  TreePine
 } from "lucide-react";
 
 const connectivityData = [
@@ -41,17 +44,17 @@ const connectivityData = [
     distance: "1.0 km away",
   },
   {
-    icon: Bus,
+    icon: BriefcaseBusiness,
     title: "Business Hub",
     distance: "4 km away",
   },
   {
-    icon: ShoppingCart,
+    icon: Dumbbell,
     title: "Fitness Center",
     distance: "2 km away",
   },
   {
-    icon: UtensilsCrossed,
+    icon: TreePine,
     title: "Public Park",
     distance: "1 km away",
   },
@@ -71,8 +74,8 @@ const ConnectivitySection: React.FC = () => {
 
       {/* Connectivity Section */}
       <section id="connectivity">
-        <div className="relative bg-white bg-opacity-90 p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+        <div className="relative bg-white/70 p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
+          <h2 className="text-3xl font-semibold text-lime-800 mb-6 text-center">
             Connectivity
           </h2>
 
