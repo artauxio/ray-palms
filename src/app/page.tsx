@@ -9,6 +9,7 @@ import FloorPlans from "@/components/FloorPlans";
 import ConnectivitySection from "@/components/ConnectivitySection";
 import EMICalculator from "@/components/EMICalculator";
 import GoogleMapLocation from "@/components/GoogleMapLocation";
+import GetInTouchForm from "@/components/GetInTouchForm";
 
 const images = [
   {
@@ -33,13 +34,23 @@ export default function Home() {
     <>
       <PhotoCarousel images={images} height="md:h-[700px] h-[500px]" />
       <ProjectInfoSection />
-      <AmenitiesSection />
-      {/* ✅ GALLERY CAROUSEL SECTION */}
-      <GalleryCarousel />
+      <section id="amenities" className="scroll-mt-24">
+        <AmenitiesSection />
+      </section>
+      <section id="gallery" className="scroll-mt-24">
+        <GalleryCarousel />
+      </section>
       <FloorPlans />
       <EMICalculator />
       <ConnectivitySection />
       <GoogleMapLocation />
+      <section id="contact">
+        <GetInTouchForm />
+      </section>
+    </>
+  );
+}
+
 
       {/* <section className="bg-[#f1fcf6] py-10">
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-10">
@@ -56,6 +67,3 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-    </>
-  );
-}

@@ -34,7 +34,7 @@ export default function GoogleMapLocation() {
 
         {/* Section Heading */}
         <div className="relative z-10 text-center mb-10">
-          <h2 className="text-4xl font-bold text-lime-600">
+          <h2 className="text-4xl font-semibold text-lime-600">
             <span className="border-lime-500 pb-2">
               Discover everything within your reach
             </span>

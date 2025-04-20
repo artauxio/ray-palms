@@ -7,6 +7,14 @@ import Container from "./Container";
 
 type Props = {};
 
+const sectionLinks = {
+  Home: "#",
+  Amenities: "#amenities",
+  Gallery: "#gallery",
+  Team: "#team",
+  Contact: "#contact",
+};
+
 const Header = (props: Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,15 +51,14 @@ const Header = (props: Props) => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-10">
-            {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
+            {Object.entries(sectionLinks).map(([label, href]) => (
               <Link
-                key={item}
-                href={`/${
-                  item.toLowerCase() === "home" ? "" : item.toLowerCase()
-                }`}
+                key={label}
+                href={href}
+                scroll={true} // optional; smooth scroll behavior
                 className="text-white hover:text-lime-100 transition-colors"
               >
-                {item}
+                {label}
               </Link>
             ))}
           </div>
@@ -75,8 +82,10 @@ const Header = (props: Props) => {
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
             >
-              <WhatsAppIcon className="w-5 h-5" />
-              Chat with us
+              <span className="flex items-center gap-2 w-full">
+                <WhatsAppIcon className="w-5 h-5 pointer-events-none" />
+                Chat with us
+              </span>
             </Link>
 
             {/* Menu Toggle Button */}
@@ -111,16 +120,14 @@ const Header = (props: Props) => {
         }`}
       >
         <div className="pt-2 pb-4 space-y-3">
-          {["Home", "Amenities", "Gallery", "Team", "Contact"].map((item) => (
+          {Object.entries(sectionLinks).map(([label, href]) => (
             <Link
-              key={item}
-              href={`/${
-                item.toLowerCase() === "home" ? "" : item.toLowerCase()
-              }`}
+              key={label}
+              href={href}
               className="block text-base font-medium hover:text-lime-100 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              {item}
+              {label}
             </Link>
           ))}
           <Link

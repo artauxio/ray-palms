@@ -36,7 +36,7 @@ const FloorPlans = () => {
     >
       <div className="max-w-3xl w-full bg-white rounded-3xl p-6 sm:p-10 shadow-xl relative">
         {/* Section Heading */}
-        <h2 className="text-center text-3xl sm:text-5xl font-bold text-green-700 mb-10">
+        <h2 className="text-center text-3xl sm:text-5xl font-bold text-lime-600 mb-10">
           Floor Plan
         </h2>
 
@@ -48,7 +48,7 @@ const FloorPlans = () => {
               onClick={() => setSelectedPlan(planKey)}
               className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg font-medium transition-all duration-200 ease-in-out shadow-sm active:scale-95 focus:outline-none md:w-full ${
                 selectedPlan === planKey
-                  ? "bg-green-600 text-white"
+                  ? "bg-lime-600 text-white"
                   : "bg-gray-200 text-gray-800 hover:bg-green-100"
               }`}
             >
@@ -69,7 +69,7 @@ const FloorPlans = () => {
           <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-green-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full"
+              className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full"
             >
               {label}
             </button>

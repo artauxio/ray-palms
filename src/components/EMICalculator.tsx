@@ -26,7 +26,7 @@ const EMICalculator = () => {
 
   return (
     <div className="bg-green-50 py-10">
-      <h2 className="text-3xl font-bold text-lime-800 text-center mb-8 underline decoration-lime-500 underline-offset-4">
+      <h2 className="text-3xl font-bold text-lime-600 text-center mb-8 underline decoration-lime-500 underline-offset-4">
         Calculate your EMI for Home Loan
       </h2>
       <Container>

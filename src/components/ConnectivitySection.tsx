@@ -74,8 +74,8 @@ const ConnectivitySection: React.FC = () => {
 
       {/* Connectivity Section */}
       <section id="connectivity">
-        <div className="relative bg-white/70 p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
-          <h2 className="text-3xl font-semibold text-lime-800 mb-6 text-center">
+        <div className="relative bg-white/70 p-8 rounded-2xl shadow-lg max-w-[1200px] mx-auto">
+          <h2 className="text-4xl font-semibold text-lime-600 mb-6 text-center">
             Connectivity
           </h2>
 

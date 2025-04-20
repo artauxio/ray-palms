@@ -69,7 +69,7 @@ const ProjectInfoSection = () => {
 
         {/* Welcome Message */}
         <div className="text-center my-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-lime-600 mb-2">
             Welcome to Ray Palms
           </h2>
           <p className="text-gray-700 text-base md:text-lg">
@@ -79,8 +79,8 @@ const ProjectInfoSection = () => {
 
         {/* Project Highlights */}
         <div className="bg-lime-100 rounded-2xl shadow-md p-6 md:p-10">
-          <h3 className="text-center text-4xl font-bold text-green-800 mb-12">
-            Project <span className="not-italic font-bold">Highlights</span>
+          <h3 className="text-center text-4xl font-bold text-lime-600 mb-12">
+            Project Highlights
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {highlights.map((highlight, index) => (

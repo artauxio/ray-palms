@@ -13,7 +13,7 @@ const AmenitiesSection = () => {
   return (
     <section className="bg-green-50 py-14">
       <Container>
-        <h3 className="text-center text-2xl sm:text-3xl font-bold text-green-800 mb-10">
+        <h3 className="text-center text-4xl font-bold text-lime-600 mb-10">
           Amenities
         </h3>
 
