@@ -1,14 +1,18 @@
+// EMICalculator.tsx
 "use client";
 import React, { useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import Container from "./Container";
+import AccessFormModal from "./AccessFormModal";
 
-const COLORS = ["#84cc16", "#ef4444"]; // lime for principal, red for interest
+const COLORS = ["#84cc16", "#ef4444"];
 
 const EMICalculator = () => {
   const [loanAmount, setLoanAmount] = useState(8000000);
   const [interestRate, setInterestRate] = useState(5.05);
   const [tenure, setTenure] = useState(9);
+  const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const rate = interestRate / (12 * 100);
   const time = tenure * 12;
@@ -23,6 +27,14 @@ const EMICalculator = () => {
     { name: "Principal", value: loanAmount },
     { name: "Interest", value: totalInterest },
   ];
+
+  const handleSliderChange = (setter: (val: number) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!hasSubmittedForm) {
+      setIsModalOpen(true);
+      return;
+    }
+    setter(Number(e.target.value));
+  };
 
   return (
     <div className="bg-green-50 py-10">
@@ -43,7 +55,7 @@ const EMICalculator = () => {
                 max="60000000"
                 step="100000"
                 value={loanAmount}
-                onChange={(e) => setLoanAmount(Number(e.target.value))}
+                onChange={handleSliderChange(setLoanAmount)}
                 className="w-full accent-lime-600"
               />
               <div className="text-lime-900 font-bold mt-1">
@@ -62,7 +74,7 @@ const EMICalculator = () => {
                 max="30"
                 step="0.1"
                 value={interestRate}
-                onChange={(e) => setInterestRate(Number(e.target.value))}
+                onChange={handleSliderChange(setInterestRate)}
                 className="w-full accent-lime-600"
               />
               <div className="text-lime-900 font-bold mt-1">
@@ -81,7 +93,7 @@ const EMICalculator = () => {
                 max="30"
                 step="1"
                 value={tenure}
-                onChange={(e) => setTenure(Number(e.target.value))}
+                onChange={handleSliderChange(setTenure)}
                 className="w-full accent-lime-600"
               />
               <div className="text-lime-900 font-bold mt-1">{tenure} years</div>
@@ -144,6 +156,15 @@ const EMICalculator = () => {
           </div>
         </div>
       </Container>
+
+      <AccessFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={(data) => {
+          console.log("EMI Form Submitted:", data);
+          setHasSubmittedForm(true);
+        }}
+      />
     </div>
   );
 };

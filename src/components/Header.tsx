@@ -9,9 +9,7 @@ type Props = {};
 
 const sectionLinks = {
   Home: "#",
-  Amenities: "#amenities",
-  Gallery: "#gallery",
-  Team: "#team",
+  About: "#about",
   Contact: "#contact",
 };
 

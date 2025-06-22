@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import FloorPlanOne from "../../public/images/floor-plan.webp";
 import FloorPlanTwo from "../../public/images/two-bhk.jpg";
+import AccessFormModal from "./AccessFormModal";
 
 const floorPlanData = {
   "1bhk": {
@@ -25,6 +26,7 @@ const floorPlanData = {
 const FloorPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState<"1bhk" | "2bhk">("1bhk");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
 
   const { label, image, carpetArea, ebvtArea, aggregateArea } =
     floorPlanData[selectedPlan];
@@ -35,18 +37,17 @@ const FloorPlans = () => {
       className="py-12 px-4 sm:px-6 lg:px-8 bg-green-50 text-gray-900 flex justify-center"
     >
       <div className="max-w-3xl w-full bg-white rounded-3xl p-6 sm:p-10 shadow-xl relative">
-        {/* Section Heading */}
         <h2 className="text-center text-3xl sm:text-5xl font-bold text-lime-600 mb-10">
           Floor Plan
         </h2>
 
-        {/* Floor Plan Switcher Buttons */}
+        {/* Switcher Buttons */}
         <div className="flex justify-center gap-4 mb-8 flex-row">
           {(["1bhk", "2bhk"] as const).map((planKey) => (
             <button
               key={planKey}
               onClick={() => setSelectedPlan(planKey)}
-              className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg font-medium transition-all duration-200 ease-in-out shadow-sm active:scale-95 focus:outline-none md:w-full ${
+              className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-lg font-medium transition-all duration-200 ease-in-out shadow-sm active:scale-95 focus:outline-none md:w-full cursor-pointer ${
                 selectedPlan === planKey
                   ? "bg-lime-600 text-white"
                   : "bg-gray-200 text-gray-800 hover:bg-green-100"
@@ -57,26 +58,30 @@ const FloorPlans = () => {
           ))}
         </div>
 
-        {/* Floor Plan Image with Overlay Label Button */}
+        {/* Image & Button */}
         <div className="relative group mb-6">
           <Image
             src={image}
             alt="Floor Plan"
             width={700}
             height={500}
-            className="w-full rounded-xl transition-all duration-500 blur-sm group-hover:blur-none"
+            className={`w-full rounded-xl transition-all duration-500 ${
+              hasSubmittedForm ? "blur-none" : "blur-sm"
+            }`}
           />
-          <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full"
-            >
-              {label}
-            </button>
-          </div>
+          {!hasSubmittedForm && (
+            <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full"
+              >
+                {label}
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Floor Plan Information */}
+        {/* Floor Plan Info */}
         <div className="text-base sm:text-lg space-y-2">
           <p>
             <strong>RERA Carpet Area:</strong> <span>{carpetArea}</span>
@@ -90,32 +95,112 @@ const FloorPlans = () => {
         </div>
       </div>
 
-      {/* Full Screen Modal */}
-      {isModalOpen && (
+      {/* Modal Form */}
+      {/* {isModalOpen && (
         <div
           onClick={() => setIsModalOpen(false)}
           className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center px-4 backdrop-blur-sm animate-fadeIn"
         >
           <div
-            className="relative w-full max-w-5xl animate-zoomIn"
+            className="bg-white p-6 rounded-xl max-w-md w-full shadow-xl relative animate-zoomIn"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded-full font-bold text-xl shadow-lg hover:bg-red-600 hover:text-white transition active:scale-95"
+              className="absolute top-3 right-4 text-black font-bold text-xl"
             >
               ✕
             </button>
-            <Image
-              src={image}
-              alt="Full View"
-              width={1200}
-              height={800}
-              className="rounded-xl w-full max-h-[90vh] object-contain"
-            />
+
+            <h3 className="text-xl font-semibold mb-4 text-lime-600">
+              Get Floor Plan Access
+            </h3>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                console.log("Form Submitted", formData);
+                setIsModalOpen(false);
+                setHasSubmittedForm(true);
+              }}
+              className="space-y-4"
+            >
+              <input
+                type="text"
+                required
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+
+              <input
+                type="tel"
+                required
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+
+              <input
+                type="email"
+                required
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+
+              <div className="flex gap-4 items-center">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    value="1bhk"
+                    checked={formData.interestedIn === "1bhk"}
+                    onChange={() =>
+                      setFormData({ ...formData, interestedIn: "1bhk" })
+                    }
+                  />
+                  1 BHK
+                </label>
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    value="2bhk"
+                    checked={formData.interestedIn === "2bhk"}
+                    onChange={() =>
+                      setFormData({ ...formData, interestedIn: "2bhk" })
+                    }
+                  />
+                  2 BHK
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-lime-600 text-white py-2 rounded hover:bg-lime-700"
+              >
+                Submit & View Plan
+              </button>
+            </form>
           </div>
         </div>
-      )}
+      )} */}
+      <AccessFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={(data) => {
+          console.log("Floor form submitted:", data);
+          setHasSubmittedForm(true);
+        }}
+      />
 
       {/* Animations */}
       <style jsx>{`

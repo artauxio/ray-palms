@@ -1,8 +1,9 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 import Image from "next/image";
 
 import ResidentialOne from "../../../public/images/residential-one.webp";
@@ -33,8 +34,9 @@ const GalleryCarousel = () => {
       {/* Carousel */}
       <div className="md:h-[300px] h-[300px]">
         <Swiper
-          modules={[Autoplay]}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          modules={[Navigation]}
+          navigation={true}
+          // autoplay={{ delay: 2000, disableOnInteraction: false }}
           loop={true}
           slidesPerView={3}
           slidesPerGroup={1}
