@@ -223,9 +223,6 @@ const GetInTouchForm = () => {
           )}
         </Container>
       </section>
-      <div className="xl:w-full xl:text-center p-4 text-white w-full text-center md:bg-lime-600">
-        <p>© 2025 Ray Palms. All rights reserved.</p>
-      </div>
     </>
   );
 };

@@ -146,5 +146,5 @@ html {
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  @apply text-lime-600 text-base z-30;
+  @apply text-lime-600 text-base z-[9999];
 }

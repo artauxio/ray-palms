@@ -1,15 +1,17 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import WhatsAppIcon from "./WhatsappIcon";
 import Container from "./Container";
+import Logo from "../../public/images/logo.png";
 
 type Props = {};
 
 const sectionLinks = {
-  Home: "#",
-  About: "#about",
+  Home: "/",
+  About: "/about",
   Contact: "#contact",
 };
 
@@ -44,7 +46,13 @@ const Header = (props: Props) => {
         <nav className="h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <p className="text-2xl font-bold text-white">Ray Palms</p>
+            <Image 
+              src={Logo} 
+              alt="Ray Palms Logo" 
+              width={90} 
+              height={30} 
+              className="object-contain"
+            />
           </Link>
 
           {/* Desktop Nav */}

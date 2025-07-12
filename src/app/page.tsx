@@ -1,7 +1,8 @@
 import PhotoCarousel from "@/components/Carousel/Carousel";
-import ResidentialOne from "../../public/images/residential-one.webp";
-import ResidentialTwo from "../../public/images/residential-two.webp";
-import ResidentialThree from "../../public/images/residential-three.webp";
+import ResidentialOne from "../../public/images/banner-one.webp";
+import ResidentialTwo from "../../public/images/banner-two.jpeg";
+import ResidentialThree from "../../public/images/banner-three.jpeg";
+import ResidentialFour from "../../public/images/banner-four.jpeg";
 import ProjectInfoSection from "@/components/ProjectInfoSection";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import GalleryCarousel from "@/components/Carousel/GalleryCarousel";
@@ -32,7 +33,7 @@ const images = [
 export default function Home() {
   return (
     <>
-      <PhotoCarousel images={images} height="md:h-[700px] h-[500px]" />
+      <PhotoCarousel images={images} height="md:h-[700px] h-[350px]" />
       <ProjectInfoSection />
       <section id="amenities" className="scroll-mt-24">
         <AmenitiesSection />

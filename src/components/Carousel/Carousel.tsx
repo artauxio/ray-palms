@@ -40,7 +40,7 @@ const PhotoCarousel = ({
                 src={src.image}
                 alt={src.alt}
                 fill
-                className="object-cover"
+                className="object-fill"
                 priority
               />
             </div>

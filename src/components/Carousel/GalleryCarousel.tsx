@@ -6,18 +6,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 
-import ResidentialOne from "../../../public/images/residential-one.webp";
-import ResidentialTwo from "../../../public/images/residential-two.webp";
-import ResidentialThree from "../../../public/images/residential-three.webp";
+import ResidentialOne from "../../../public/images/banner-one.webp";
+import ResidentialTwo from "../../../public/images/banner-two.jpeg";
+import ResidentialThree from "../../../public/images/banner-three.jpeg";
+import ResidentialFour from "../../../public/images/banner-four.jpeg";
 
 const GalleryCarousel = () => {
   const images = [
     { id: 1, src: ResidentialOne, alt: "Residential Image One" },
     { id: 2, src: ResidentialTwo, alt: "Residential Image Two" },
     { id: 3, src: ResidentialThree, alt: "Residential Image Three" },
-    { id: 4, src: ResidentialOne, alt: "Residential Image One" },
-    { id: 5, src: ResidentialTwo, alt: "Residential Image Two" },
-    { id: 6, src: ResidentialThree, alt: "Residential Image Three" },
+    { id: 4, src: ResidentialFour, alt: "Residential Image One" },
   ];
 
   return (
@@ -32,7 +31,7 @@ const GalleryCarousel = () => {
       </div>
 
       {/* Carousel */}
-      <div className="md:h-[300px] h-[300px]">
+      <div className="md:h-[350px] h-[300px]">
         <Swiper
           modules={[Navigation]}
           navigation={true}
@@ -56,7 +55,7 @@ const GalleryCarousel = () => {
                   src={src.src}
                   alt={src.alt}
                   fill
-                  className="object-cover rounded-tl-[100px] rounded-br-[100px]"
+                  className="object-fill rounded-tl-[100px] rounded-br-[100px]"
                   priority
                 />
               </div>

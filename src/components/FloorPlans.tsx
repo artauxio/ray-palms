@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import FloorPlanOne from "../../public/images/floor-plan.webp";
-import FloorPlanTwo from "../../public/images/two-bhk.jpg";
+import FloorPlanOne from "../../public/images/a-wing.webp";
+import FloorPlanTwo from "../../public/images/b-wing.webp";
 import AccessFormModal from "./AccessFormModal";
 
 const floorPlanData = {
@@ -73,7 +73,7 @@ const FloorPlans = () => {
             <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full"
+                className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full z-50"
               >
                 {label}
               </button>
