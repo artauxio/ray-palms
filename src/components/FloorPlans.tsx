@@ -83,7 +83,7 @@ const FloorPlans = () => {
             <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full z-50"
+                className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full z-50 cursor-pointer"
               >
                 {label}
               </button>

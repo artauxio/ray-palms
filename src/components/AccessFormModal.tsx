@@ -124,7 +124,7 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
           </button>
 
           <h3 className="text-xl font-semibold mb-4 text-lime-600">
-            Get Floor Plan Access
+            Get Floor Plan & EMI Calculator Access
           </h3>
 
           <form
