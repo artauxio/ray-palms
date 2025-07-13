@@ -28,6 +28,7 @@ const GetInTouchForm = () => {
     city: false,
   });
   const [showCard, setShowCard] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateInput = (name: string, value: string) => {
     switch (name) {
@@ -55,26 +56,49 @@ const GetInTouchForm = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
+  
     const errors = {
       fullName: !validateInput("fullName", formData.fullName),
       phoneNumber: !validateInput("phoneNumber", formData.phoneNumber),
       email: !validateInput("email", formData.email),
       city: !validateInput("city", formData.city),
     };
-
+  
     setFormErrors(errors);
-
+  
     if (Object.values(errors).some((error) => error)) return;
-
-    // Log the form data
-    console.log("Form Submitted:", formData);
-
-    // Show popup and reset
-    setShowCard(true);
-    setFormData(initialFormData);
+  
+    try {
+      setIsSubmitting(true);
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbyVIyvy1UxhjbTsDQgHIcb_9S2OZuV-GIes8I-PX7VbY3evebE2ipzLm5FntW_DJdKl-A/exec";
+      
+      
+      const response = await fetch(scriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          phoneNumber: formData.phoneNumber,
+          email: formData.email,
+          city: formData.city,
+          message: formData.message
+        }),
+        mode: "no-cors"
+      });
+  
+      setShowCard(true);
+      setFormData(initialFormData);
+      
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting your form. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -211,9 +235,20 @@ const GetInTouchForm = () => {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="bg-lime-600 hover:bg-lime-700 text-white px-6 py-3 rounded-md font-semibold transition cursor-pointer"
+                disabled={isSubmitting}
+                className="bg-lime-600 hover:bg-lime-700 text-white px-6 py-3 rounded-md font-semibold transition cursor-pointer disabled:bg-lime-400 disabled:cursor-not-allowed flex items-center justify-center"
               >
-                SUBMIT
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    SUBMITTING...
+                  </>
+                ) : (
+                  "SUBMIT"
+                )}
               </button>
             </div>
           </form>

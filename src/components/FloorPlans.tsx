@@ -27,9 +27,18 @@ const FloorPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState<"1bhk" | "2bhk">("1bhk");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const { label, image, carpetArea, ebvtArea, aggregateArea } =
     floorPlanData[selectedPlan];
+
+  const handleImageClick = () => {
+    if (hasSubmittedForm) {
+      setIsFullscreen(true);
+    } else {
+      setIsModalOpen(true);
+    }
+  };
 
   return (
     <section
@@ -66,8 +75,9 @@ const FloorPlans = () => {
             width={700}
             height={500}
             className={`w-full rounded-xl transition-all duration-500 ${
-              hasSubmittedForm ? "blur-none" : "blur-sm"
+              hasSubmittedForm ? "blur-none cursor-pointer" : "blur-sm"
             }`}
+            onClick={handleImageClick}
           />
           {!hasSubmittedForm && (
             <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 text-center">
@@ -76,6 +86,19 @@ const FloorPlans = () => {
                 className="bg-lime-600 text-white text-base sm:text-lg font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 active:scale-95 w-full z-50"
               >
                 {label}
+              </button>
+            </div>
+          )}
+          {hasSubmittedForm && (
+            <div className="absolute bottom-3 right-3">
+              <button
+                onClick={handleImageClick}
+                className="bg-lime-600 text-white p-2 rounded-full shadow-lg hover:bg-green-700 transition duration-300"
+                title="View Fullscreen"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+                </svg>
               </button>
             </div>
           )}
@@ -95,109 +118,38 @@ const FloorPlans = () => {
         </div>
       </div>
 
-      {/* Modal Form */}
-      {/* {isModalOpen && (
-        <div
-          onClick={() => setIsModalOpen(false)}
-          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center px-4 backdrop-blur-sm animate-fadeIn"
+      {/* Fullscreen Image Modal */}
+      {isFullscreen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4 animate-fadeIn"
+          onClick={() => setIsFullscreen(false)}
         >
-          <div
-            className="bg-white p-6 rounded-xl max-w-md w-full shadow-xl relative animate-zoomIn"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative max-w-7xl w-full h-full flex items-center justify-center">
             <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-3 right-4 text-black font-bold text-xl"
+              onClick={() => setIsFullscreen(false)}
+              className="absolute top-4 right-4 text-white bg-lime-600 rounded-full p-2 hover:bg-lime-700 transition-colors z-10"
             >
-              ✕
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
-
-            <h3 className="text-xl font-semibold mb-4 text-lime-600">
-              Get Floor Plan Access
-            </h3>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                console.log("Form Submitted", formData);
-                setIsModalOpen(false);
-                setHasSubmittedForm(true);
-              }}
-              className="space-y-4"
-            >
-              <input
-                type="text"
-                required
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                className="w-full border border-gray-300 rounded px-3 py-2"
-              />
-
-              <input
-                type="tel"
-                required
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
-                className="w-full border border-gray-300 rounded px-3 py-2"
-              />
-
-              <input
-                type="email"
-                required
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full border border-gray-300 rounded px-3 py-2"
-              />
-
-              <div className="flex gap-4 items-center">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    value="1bhk"
-                    checked={formData.interestedIn === "1bhk"}
-                    onChange={() =>
-                      setFormData({ ...formData, interestedIn: "1bhk" })
-                    }
-                  />
-                  1 BHK
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    value="2bhk"
-                    checked={formData.interestedIn === "2bhk"}
-                    onChange={() =>
-                      setFormData({ ...formData, interestedIn: "2bhk" })
-                    }
-                  />
-                  2 BHK
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-lime-600 text-white py-2 rounded hover:bg-lime-700"
-              >
-                Submit & View Plan
-              </button>
-            </form>
+            <Image
+              src={image}
+              alt="Floor Plan Fullscreen View"
+              className="max-h-[90vh] w-auto object-contain animate-zoomIn"
+              width={1200}
+              height={900}
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
-      )} */}
+      )}
+
+      {/* Modal Form */}
       <AccessFormModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={(data) => {
-          console.log("Floor form submitted:", data);
           setHasSubmittedForm(true);
         }}
       />

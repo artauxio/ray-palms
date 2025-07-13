@@ -73,7 +73,7 @@ const Header = (props: Props) => {
           <div className="flex items-center gap-2 md:gap-6">
             {/* WhatsApp Button for Mobile */}
             <Link
-              href="https://wa.me/PHONE_NUMBER"
+              href="https://wa.me/9867715855"
               target="_blank"
               rel="noopener noreferrer"
               className="flex md:hidden justify-center items-center w-8 h-8 rounded-full bg-white hover:bg-lime-100"
@@ -83,7 +83,7 @@ const Header = (props: Props) => {
 
             {/* WhatsApp Button for Desktop */}
             <Link
-              href="https://wa.me/PHONE_NUMBER"
+              href="https://wa.me/9867715855"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
@@ -137,7 +137,7 @@ const Header = (props: Props) => {
             </Link>
           ))}
           <Link
-            href="https://wa.me/PHONE_NUMBER"
+            href="https://wa.me/9867715855"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"

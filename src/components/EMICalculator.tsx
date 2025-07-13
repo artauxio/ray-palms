@@ -161,7 +161,6 @@ const EMICalculator = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={(data) => {
-          console.log("EMI Form Submitted:", data);
           setHasSubmittedForm(true);
         }}
       />

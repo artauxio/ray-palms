@@ -49,11 +49,11 @@ const CoreValues = () => {
           </p>
         </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-2">
+        <div className="w-full flex flex-wrap justify-center gap-6 mt-2">
           {coreValues.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-lime-200 shadow hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-center items-center text-center h-full"
+              className="bg-white rounded-xl border border-lime-200 shadow hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-center items-center text-center w-full h-52 md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
             >
               <h4 className="text-xl font-semibold text-lime-700 mb-2">
                 {item.title}
