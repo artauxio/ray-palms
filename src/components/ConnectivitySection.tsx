@@ -9,7 +9,7 @@ import {
   UtensilsCrossed,
   BriefcaseBusiness,
   Dumbbell,
-  TreePine
+  TreePine,
 } from "lucide-react";
 
 const connectivityData = [
@@ -74,23 +74,27 @@ const ConnectivitySection: React.FC = () => {
 
       {/* Connectivity Section */}
       <section id="connectivity">
-        <div className="relative bg-white/70 p-8 rounded-2xl shadow-lg max-w-[1200px] mx-auto">
-          <h2 className="text-4xl font-semibold text-lime-600 mb-6 text-center">
+        <div className="relative bg-[#f0f0ec]/95 backdrop-blur-sm p-10 rounded-3xl shadow-2xl max-w-[1200px] mx-auto">
+          <h2 className="text-4xl font-bold text-[#485e4c] mb-10 text-center drop-shadow-md">
             Connectivity
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {connectivityData.map((item, index) => {
               const IconComponent = item.icon;
               return (
                 <div
                   key={index}
-                  className="flex items-center gap-4 bg-white p-4 rounded-lg shadow"
+                  className="flex items-center gap-5 bg-[#e4e2dc] rounded-xl p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-default"
                 >
-                  <IconComponent className="text-green-600 w-6 h-6" />
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#485e4c]/20 text-[#485e4c] shadow-inner transition-transform duration-300 group-hover:scale-110">
+                    <IconComponent className="w-7 h-7" />
+                  </div>
                   <div>
-                    <p className="font-semibold text-gray-700">{item.title}</p>
-                    <p className="text-gray-500 text-sm">{item.distance}</p>
+                    <p className="font-semibold text-[#485e4c] text-lg leading-tight">
+                      {item.title}
+                    </p>
+                    <p className="text-[#7d927b] text-sm mt-1">{item.distance}</p>
                   </div>
                 </div>
               );

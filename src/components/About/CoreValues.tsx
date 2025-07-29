@@ -1,10 +1,6 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Container from "../Container";
-
-
-type Props = {};
-
 
 const coreValues = [
   {
@@ -36,31 +32,29 @@ const coreValues = [
 
 const CoreValues = () => {
   return (
-    <section
-      className=" bg-green-50 text-gray-900 pb-12"
-    >
+    <section className="bg-[#e4e2dc] text-[#485e4c] pb-12">
       <Container>
-      <div className="w-full flex flex-col items-center justify-center gap-3 pb-3 pt-3">
-          <h2 className="text-3xl sm:text-4xl font-bold text-lime-600 mb-3">
-          Our Core Values
+        <div className="w-full flex flex-col items-center justify-center gap-3 pb-6 pt-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#485e4c] mb-4 drop-shadow-sm">
+            Our Core Values
           </h2>
-          <p className="text-gray-700 text-center md:w-[60%] transition-all duration-300 xl:mb-7 mb-3">
-          Our core values guide our actions and define our culture, ensuring we deliver exceptional value to our clients and partners
+          <p className="text-[#5b6c55] text-center md:w-[60%] max-w-4xl transition-all duration-300 xl:mb-7 mb-3 tracking-wide">
+            Our core values guide our actions and define our culture, ensuring we deliver exceptional value to our clients and partners.
           </p>
         </div>
 
-        <div className="w-full flex flex-wrap justify-center gap-6 mt-2">
+        <div className="w-full flex flex-wrap justify-center gap-6 mt-4">
           {coreValues.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-lime-200 shadow hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-center items-center text-center w-full h-52 md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
+              className="bg-[#f0f0ec] rounded-xl border border-[#bebfbc] shadow-md p-6 flex flex-col justify-center items-center text-center 
+                w-full h-auto md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]
+                transition-transform transition-shadow duration-300 hover:shadow-xl hover:scale-[1.03] cursor-default"
             >
-              <h4 className="text-xl font-semibold text-lime-700 mb-2">
+              <h4 className="text-xl font-semibold text-[#485e4c] mb-3">
                 {item.title}
               </h4>
-              <p className="text-gray-700 leading-relaxed">
-                {item.content}
-              </p>
+              <p className="text-[#7d927b] leading-relaxed">{item.content}</p>
             </div>
           ))}
         </div>

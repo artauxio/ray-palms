@@ -7,15 +7,13 @@ import WhatsAppIcon from "./WhatsappIcon";
 import Container from "./Container";
 import Logo from "../../public/images/logo.png";
 
-type Props = {};
-
 const sectionLinks = {
   Home: "/",
   About: "/about",
   Contact: "#contact",
 };
 
-const Header = (props: Props) => {
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
@@ -39,18 +37,20 @@ const Header = (props: Props) => {
   return (
     <header
       className={`fixed top-0 w-full border-b z-50 transition-all duration-300 border-none ${
-        isScrolled ? "bg-lime-600/80 backdrop-blur-md" : "bg-lime-600"
+        isScrolled
+          ? "bg-[#485e4ccc] backdrop-blur-md"
+          : "bg-[#485e4c]"
       }`}
     >
       <Container>
         <nav className="h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <Image 
-              src={Logo} 
-              alt="Ray Palms Logo" 
-              width={90} 
-              height={30} 
+            <Image
+              src={Logo}
+              alt="Ray Palms Logo"
+              width={90}
+              height={30}
               className="object-contain"
             />
           </Link>
@@ -61,8 +61,8 @@ const Header = (props: Props) => {
               <Link
                 key={label}
                 href={href}
-                scroll={true} // optional; smooth scroll behavior
-                className="text-white hover:text-lime-100 transition-colors"
+                scroll={true}
+                className="text-[#f0f0ec] hover:text-[#7d927b] transition-colors"
               >
                 {label}
               </Link>
@@ -76,9 +76,9 @@ const Header = (props: Props) => {
               href="https://wa.me/9867715855"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex md:hidden justify-center items-center w-8 h-8 rounded-full bg-white hover:bg-lime-100"
+              className="flex md:hidden justify-center items-center w-8 h-8 rounded-full bg-[#f0f0ec] hover:bg-[#e4e2dc]"
             >
-              <WhatsAppIcon className="w-5 h-5 text-lime-600" />
+              <WhatsAppIcon className="w-5 h-5 text-[#485e4c]" />
             </Link>
 
             {/* WhatsApp Button for Desktop */}
@@ -86,7 +86,7 @@ const Header = (props: Props) => {
               href="https://wa.me/9867715855"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
+              className="hidden sm:flex items-center gap-2 bg-[#f0f0ec] text-[#485e4c] hover:bg-[#e4e2dc] px-4 py-2 rounded-lg font-medium transition-colors"
             >
               <span className="flex items-center gap-2 w-full">
                 <WhatsAppIcon className="w-5 h-5 pointer-events-none" />
@@ -96,18 +96,18 @@ const Header = (props: Props) => {
 
             {/* Menu Toggle Button */}
             <span
-              className="w-8 h-8 rounded-full flex justify-center items-center hover:bg-black/10 cursor-pointer transition-transform duration-300 md:hidden"
+              className="w-8 h-8 rounded-full flex justify-center items-center hover:bg-[#9ca098] cursor-pointer transition-transform duration-300 md:hidden"
               onClick={handleMenuToggle}
             >
               {menuOpen ? (
                 <X
-                  className={`w-7 h-7 text-white transition-transform duration-300 ${
+                  className={`w-7 h-7 text-[#f0f0ec] transition-transform duration-300 ${
                     isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
                   }`}
                 />
               ) : (
                 <Menu
-                  className={`w-7 h-7 text-white transition-transform duration-300 ${
+                  className={`w-7 h-7 text-[#f0f0ec] transition-transform duration-300 ${
                     isRotated ? "rotate-90 scale-110" : "rotate-0 scale-100"
                   }`}
                 />
@@ -119,7 +119,7 @@ const Header = (props: Props) => {
 
       {/* Animated Mobile Nav Menu */}
       <div
-        className={`md:hidden bg-lime-600/80 text-white px-5 overflow-hidden transform transition-all duration-500 ease-in-out ${
+        className={`md:hidden bg-[#485e4ccc] text-[#f0f0ec] px-5 overflow-hidden transform transition-all duration-500 ease-in-out ${
           menuOpen
             ? "max-h-[500px] opacity-100 scale-100"
             : "max-h-0 opacity-0 scale-95"
@@ -130,7 +130,7 @@ const Header = (props: Props) => {
             <Link
               key={label}
               href={href}
-              className="block text-base font-medium hover:text-lime-100 transition-colors"
+              className="block text-base font-medium hover:text-[#7d927b] transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {label}
@@ -140,7 +140,7 @@ const Header = (props: Props) => {
             href="https://wa.me/9867715855"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-white text-lime-600 hover:bg-lime-50 px-4 py-2 rounded-lg font-medium transition-colors"
+            className="flex items-center gap-2 bg-[#f0f0ec] text-[#485e4c] hover:bg-[#e4e2dc] px-4 py-2 rounded-lg font-medium transition-colors"
           >
             <WhatsAppIcon className="w-5 h-5" />
             Chat with us

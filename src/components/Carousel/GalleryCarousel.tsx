@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
@@ -16,17 +16,17 @@ const GalleryCarousel = () => {
     { id: 1, src: ResidentialOne, alt: "Residential Image One" },
     { id: 2, src: ResidentialTwo, alt: "Residential Image Two" },
     { id: 3, src: ResidentialThree, alt: "Residential Image Three" },
-    { id: 4, src: ResidentialFour, alt: "Residential Image One" },
+    { id: 4, src: ResidentialFour, alt: "Residential Image Four" },
   ];
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-[#f0f0ec]">
       {/* Decorative Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl text-lime-600 font-bold relative inline-block">
-          <span className="before:absolute before:w-[80px] before:h-[1.5px] before:bg-lime-600 before:-left-[90px] before:top-1/2 before:-translate-y-1/2"></span>
+        <h2 className="relative inline-block text-4xl font-bold text-[#485e4c]">
+          <span className="before:absolute before:w-[80px] before:h-[1.5px] before:bg-[#485e4c] before:-left-[90px] before:top-1/2 before:-translate-y-1/2"></span>
           <span className="mx-6">Gallery</span>
-          <span className="after:absolute after:w-[80px] after:h-[1.5px] after:bg-lime-600 after:-right-[90px] after:top-1/2 after:-translate-y-1/2"></span>
+          <span className="after:absolute after:w-[80px] after:h-[1.5px] after:bg-[#485e4c] after:-right-[90px] after:top-1/2 after:-translate-y-1/2"></span>
         </h2>
       </div>
 
@@ -48,12 +48,12 @@ const GalleryCarousel = () => {
           }}
           className="w-full h-full"
         >
-          {images.map((src) => (
-            <SwiperSlide key={src.id}>
+          {images.map(({ id, src, alt }) => (
+            <SwiperSlide key={id}>
               <div className="relative w-full h-full">
                 <Image
-                  src={src.src}
-                  alt={src.alt}
+                  src={src}
+                  alt={alt}
                   fill
                   className="object-fill rounded-tl-[100px] rounded-br-[100px]"
                   priority

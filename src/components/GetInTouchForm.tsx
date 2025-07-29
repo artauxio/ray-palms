@@ -58,24 +58,24 @@ const GetInTouchForm = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-  
+
     const errors = {
       fullName: !validateInput("fullName", formData.fullName),
       phoneNumber: !validateInput("phoneNumber", formData.phoneNumber),
       email: !validateInput("email", formData.email),
       city: !validateInput("city", formData.city),
     };
-  
+
     setFormErrors(errors);
-  
+
     if (Object.values(errors).some((error) => error)) return;
-  
+
     try {
       setIsSubmitting(true);
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbyVIyvy1UxhjbTsDQgHIcb_9S2OZuV-GIes8I-PX7VbY3evebE2ipzLm5FntW_DJdKl-A/exec";
-      
-      
-      const response = await fetch(scriptUrl, {
+      const scriptUrl =
+        "https://script.google.com/macros/s/AKfycbyVIyvy1UxhjbTsDQgHIcb_9S2OZuV-GIes8I-PX7VbY3evebE2ipzLm5FntW_DJdKl-A/exec";
+
+      await fetch(scriptUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,14 +85,13 @@ const GetInTouchForm = () => {
           phoneNumber: formData.phoneNumber,
           email: formData.email,
           city: formData.city,
-          message: formData.message
+          message: formData.message,
         }),
-        mode: "no-cors"
+        mode: "no-cors",
       });
-  
+
       setShowCard(true);
       setFormData(initialFormData);
-      
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("There was an error submitting your form. Please try again later.");
@@ -109,33 +108,33 @@ const GetInTouchForm = () => {
     }
   }, [showCard]);
 
+  // Input class utility using your palette and direct hex codes
   const inputClass = (hasError: boolean) =>
     `bg-transparent border ${
-      hasError ? "border-red-500" : "border-lime-500"
-    } rounded-md px-4 py-2 placeholder-gray-500 text-lime-800 focus:outline-none focus:ring-2 ${
-      hasError ? "focus:ring-red-500" : "focus:ring-lime-500"
-    }`;
+      hasError ? "border-[#ef4444]" : "border-[#485e4c]"
+    } rounded-md px-4 py-2 placeholder-[#9ca098] text-[#485e4c] focus:outline-none focus:ring-2 ${
+      hasError ? "focus:ring-[#ef4444]" : "focus:ring-[#485e4c]"
+    } transition-colors`;
 
   return (
     <>
-      <section className="bg-green-50 text-white py-16 px-4">
+      <section className="bg-[#e4e2dc] text-[#485e4c] py-16 px-4">
         <Container>
-          <h2 className="text-3xl font-semibold mb-2 text-lime-600">
-            Get In Touch
-          </h2>
-          <p className="text-gray-400 mb-2">
+          <h2 className="text-3xl font-semibold mb-2 text-[#485e4c]">Get In Touch</h2>
+          <p className="text-[#7d927b] mb-8">
             Fill in your details and our team will get in touch with you
           </p>
 
           <form
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
             onSubmit={handleSubmit}
+            noValidate
           >
             {/* Full Name */}
             <div className="flex flex-col">
               <label
                 htmlFor="fullName"
-                className="mb-1 text-sm font-medium text-lime-600"
+                className="mb-1 text-sm font-medium text-[#485e4c]"
               >
                 Full Name
               </label>
@@ -155,7 +154,7 @@ const GetInTouchForm = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="phoneNumber"
-                className="mb-1 text-sm font-medium text-lime-600"
+                className="mb-1 text-sm font-medium text-[#485e4c]"
               >
                 Phone Number
               </label>
@@ -175,7 +174,7 @@ const GetInTouchForm = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="email"
-                className="mb-1 text-sm font-medium text-lime-600"
+                className="mb-1 text-sm font-medium text-[#485e4c]"
               >
                 Email ID
               </label>
@@ -195,7 +194,7 @@ const GetInTouchForm = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="city"
-                className="mb-1 text-sm font-medium text-lime-600"
+                className="mb-1 text-sm font-medium text-[#485e4c]"
               >
                 City of Residence
               </label>
@@ -215,7 +214,7 @@ const GetInTouchForm = () => {
             <div className="flex flex-col md:col-span-2">
               <label
                 htmlFor="message"
-                className="mb-1 text-sm font-medium text-lime-600"
+                className="mb-1 text-sm font-medium text-[#485e4c]"
               >
                 Your Message
               </label>
@@ -226,7 +225,7 @@ const GetInTouchForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Enter your message"
-                className="bg-transparent border border-lime-500 rounded-md px-4 py-2 placeholder-gray-500 text-lime-800 focus:outline-none focus:ring-2 focus:ring-lime-500"
+                className="bg-transparent border border-[#485e4c] rounded-md px-4 py-2 placeholder-[#9ca098] text-[#485e4c] focus:outline-none focus:ring-2 focus:ring-[#485e4c] transition-colors"
                 required
               />
             </div>
@@ -236,13 +235,29 @@ const GetInTouchForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-lime-600 hover:bg-lime-700 text-white px-6 py-3 rounded-md font-semibold transition cursor-pointer disabled:bg-lime-400 disabled:cursor-not-allowed flex items-center justify-center"
+                className="bg-[#485e4c] hover:bg-[#5b6c55] disabled:bg-[#7d927b] text-[#f0f0ec] px-6 py-3 rounded-md font-semibold transition-colors cursor-pointer disabled:cursor-not-allowed flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#f0f0ec]"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     SUBMITTING...
                   </>
