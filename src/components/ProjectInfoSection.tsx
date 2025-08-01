@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 
 const infoItems = [
   { title: "Location", value: "Palghar, Mumbai" },
-  { title: "Price Starting At", value: "₹ 30 L" },
+  { title: "Price Starting At", value: "₹ 26 L*" },
   { title: "Apartment Type", value: "1 & 2 BHK" },
   { title: "Carpet Area", value: "555 sq.ft" },
 ];
@@ -37,15 +37,15 @@ const highlights = [
     ),
   },
   {
-    title: "Resort-Like Amenities",
-    description: "Swimming pool, clubhouse, gym, and more.",
+    title: "Vastu Compliance",
+    description: "Homes designed keeping traditional Vastu principles in mind.",
     icon: (
       <svg
         className="w-8 h-8 text-[#7d927b] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
-        <path d="M22 21c-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36-.56 0-.78.13-1.15.36-.46.27-1.07.64-2.18.64s-1.73-.37-2.18-.64c-.37-.22-.6-.36-1.15-.36-.56 0-.78.13-1.15.36-.46.27-1.08.64-2.19.64-1.11 0-1.73-.37-2.18-.64-.37-.23-.6-.36-1.15-.36s-.78.13-1.15.36c-.46.27-1.08.64-2.19.64v-2c.56 0 .78-.13 1.15-.36.46-.27 1.08-.64 2.19-.64s1.73.37 2.18.64c.37.23.59.36 1.15.36.56 0 .78-.13 1.15-.36.46-.27 1.08-.64 2.19-.64 1.11 0 1.73.37 2.18.64.37.22.6.36 1.15.36s.78-.13 1.15-.36c.45-.27 1.07-.64 2.18-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36v2zm0-4.5c-1.11 0-1.73-.37-2.18-.64-.37-.22-.6-.36-1.15-.36-.56 0-.78.13-1.15.36-.45.27-1.07.64-2.18.64s-1.73-.37-2.18-.64c-.37-.22-.6-.36-1.15-.36-.56 0-.78.13-1.15.36-.45.27-1.07.64-2.18.64s-1.73-.37-2.18-.64c-.37-.22-.6-.36-1.15-.36s-.78.13-1.15.36c-.47.27-1.09.64-2.2.64v-2c.56 0 .78-.13 1.15-.36.47-.27 1.09-.64 2.2-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36.56 0 .78-.13 1.15-.36.45-.27 1.07-.64 2.18-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36s.78-.13 1.15-.36c.45-.27 1.07-.64 2.18-.64s1.73.37 2.18.64c.37.22.6.36 1.15.36v2zM8.67 12c.56 0 .78-.13 1.15-.36.46-.27 1.08-.64 2.19-.64 1.11 0 1.73.37 2.18.64.37.22.6.36 1.15.36s.78-.13 1.15-.36c.12-.07.26-.15.41-.23L10.48 5C8.93 3.45 7.5 2.99 5 3v2.5c1.82-.01 2.89.39 4 1.5l1 1-3.25 3.25c.31.12.56.27.77.39.37.23.59.36 1.15.36z" />
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
       </svg>
     ),
   },
@@ -102,7 +102,7 @@ const ProjectInfoSection = () => {
             Welcome to Ray Palms
           </h2>
           <p className="text-[#9ca098] text-base md:text-lg">
-            A premium land development project surrounded by nature.
+            Palghar — where comfort, peace, and connectivity come together.
           </p>
         </div>
       </Container>

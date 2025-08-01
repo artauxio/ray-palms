@@ -9,16 +9,14 @@ const floorPlanData = {
   "1bhk": {
     label: "1 BHK Unit",
     image: FloorPlanOne,
-    carpetArea: "30.53 Sqm (328.62 SQ.FT.)",
-    ebvtArea: "5.75 Sqm (61.89 SQ.FT.)",
-    aggregateArea: "36.28 Sqm (390.51 SQ.FT.)",
+    reraCarpetArea: "359 sq.ft",
+    actualCarpetArea: "410 sq.ft",
   },
   "2bhk": {
     label: "2 BHK Unit",
     image: FloorPlanTwo,
-    carpetArea: "45.00 Sqm (484.38 SQ.FT.)",
-    ebvtArea: "6.25 Sqm (67.28 SQ.FT.)",
-    aggregateArea: "51.25 Sqm (551.66 SQ.FT.)",
+    reraCarpetArea: "594 sq.ft",
+    actualCarpetArea: "656 sq.ft",
   },
 };
 
@@ -28,7 +26,7 @@ const FloorPlans = () => {
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const { label, image, carpetArea, ebvtArea, aggregateArea } = floorPlanData[selectedPlan];
+  const { label, image, reraCarpetArea, actualCarpetArea } = floorPlanData[selectedPlan];
 
   const handleImageClick = () => {
     if (hasSubmittedForm) {
@@ -114,13 +112,10 @@ const FloorPlans = () => {
         {/* Floor Plan Info */}
         <div className="text-base sm:text-lg space-y-2 text-[#5b6c55]">
           <p>
-            <strong className="text-[#485e4c]">RERA Carpet Area:</strong> <span>{carpetArea}</span>
+            <strong className="text-[#485e4c]">RERA Carpet Area:</strong> <span>{reraCarpetArea}</span>
           </p>
           <p>
-            <strong className="text-[#485e4c]">EBVT Area:</strong> <span>{ebvtArea}</span>
-          </p>
-          <p>
-            <strong className="text-[#485e4c]">Aggregate Area:</strong> <span>{aggregateArea}</span>
+            <strong className="text-[#485e4c]">EBVT Area:</strong> <span>{actualCarpetArea}</span>
           </p>
         </div>
       </div>
