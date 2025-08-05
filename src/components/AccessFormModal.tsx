@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PopUpCard from "./PopUpCard";
 
 type Props = {
@@ -26,9 +26,9 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
     phone: false,
     email: false,
   });
- 
-  const validateInput = (name: string, value: string) => {
-    switch (name) {
+
+  const validateInput = (fieldName: string, value: string) => {
+    switch (fieldName) {
       case "name":
         return /^[a-zA-Z\s]+$/.test(value);
       case "phone":
@@ -41,48 +41,45 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    
-    if (name === "name") setName(value);
-    if (name === "email") setEmail(value);
-    if (name === "phone") setPhone(value);
-    
-    if (name in formErrors) {
-      setFormErrors({ ...formErrors, [name]: !validateInput(name, value) });
+    const { name: field, value } = e.target;
+
+    if (field === "name") setName(value);
+    if (field === "email") setEmail(value);
+    if (field === "phone") setPhone(value);
+
+    if (field in formErrors) {
+      setFormErrors((prev) => ({
+        ...prev,
+        [field]: !validateInput(field, value),
+      }));
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const errors = {
       name: !validateInput("name", name),
       phone: !validateInput("phone", phone),
       email: !validateInput("email", email),
     };
-    
     setFormErrors(errors);
-    
-    if (Object.values(errors).some((error) => error)) return;
-    
+
+    if (Object.values(errors).some(Boolean)) return;
+
     setIsSubmitting(true);
-    
     try {
-      // First call the parent's onSubmit
       onSubmit({ name, email, phone, interest });
-      
-      // Submit to Google Sheets
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbxqqxSx58apkPk-gKWhFmjfHB0vAqc9Ktjxljm9ttWFsORdPTCUzoF3nsibQU9CwhX8/exec";
+
+      const scriptUrl =
+        "https://script.google.com/macros/s/AKfycbxqqxSx58apkPk-gKWhFmjfHB0vAqc9Ktjxljm9ttWFsORdPTCUzoF3nsibQU9CwhX8/exec";
       const formData = new URLSearchParams();
       formData.append("name", name);
       formData.append("email", email);
       formData.append("phone", phone);
       formData.append("interest", interest);
 
-      await fetch(scriptUrl, {
-        method: "POST",
-        body: formData
-      });
+      await fetch(scriptUrl, { method: "POST", body: formData });
 
       setShowSuccessCard(true);
     } catch (error) {
@@ -91,46 +88,59 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
       setIsSubmitting(false);
     }
   };
-  
+
   const inputClass = (hasError: boolean) =>
-    `w-full border ${
-      hasError ? "border-red-500" : "border-gray-300"
-    } rounded px-3 py-2 ${
-      hasError ? "focus:ring-red-500" : "focus:ring-lime-500"
-    } focus:outline-none focus:ring-2`;
-  
+    `w-full border rounded px-3 py-2 placeholder-[#9ca098] text-[#485e4c] focus:outline-none focus:ring-2 transition-colors ${
+      hasError
+        ? "border-[#ef4444] focus:ring-[#ef4444]"
+        : "border-[#bebfbc] focus:ring-[#5b6c55]"
+    }`;
+
   if (!isOpen) return null;
 
   return (
     <div
       onClick={showSuccessCard ? undefined : onClose}
-      className="fixed inset-0 bg-blend-saturation bg-opacity-80 z-50 flex items-center justify-center px-4 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center px-4 backdrop-blur-sm bg-[#e4e2dc]/90 animate-fadeIn"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="access-form-modal-title"
     >
       {showSuccessCard ? (
-        <PopUpCard status="success" onClose={() => {
-          setShowSuccessCard(false);
-          onClose();
-        }} />
+        <PopUpCard
+          status="success"
+          onClose={() => {
+            setShowSuccessCard(false);
+            onClose();
+            // Clear form on modal close
+            setName("");
+            setEmail("");
+            setPhone("");
+            setInterest("1bhk");
+            setFormErrors({ name: false, phone: false, email: false });
+          }}
+        />
       ) : (
         <div
-          className="bg-white p-6 rounded-xl max-w-md w-full shadow-xl relative animate-zoomIn"
           onClick={(e) => e.stopPropagation()}
+          className="bg-[#f0f0ec] rounded-3xl p-8 shadow-2xl max-w-md w-full animate-zoomIn relative"
         >
           <button
             onClick={onClose}
-            className="absolute top-3 right-4 text-black font-bold text-xl cursor-pointer"
+            aria-label="Close modal"
+            className="absolute top-4 right-5 text-[#485e4c] hover:text-[#5b6c55] rounded-full p-1 cursor-pointer transition"
           >
             ✕
           </button>
 
-          <h3 className="text-xl font-semibold mb-4 text-lime-600">
+          <h3
+            id="access-form-modal-title"
+            className="text-2xl font-semibold mb-6 text-[#485e4c] text-center"
+          >
             Get Floor Plan & EMI Calculator Access
           </h3>
 
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-4"
-          >
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <input
                 type="text"
@@ -140,12 +150,20 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
                 required
                 onChange={handleChange}
                 className={inputClass(formErrors.name)}
+                aria-invalid={formErrors.name}
+                aria-describedby={formErrors.name ? "name-error" : undefined}
               />
               {formErrors.name && (
-                <p className="text-red-500 text-xs mt-1">Please enter a valid name</p>
+                <p
+                  id="name-error"
+                  className="text-[#ef4444] text-xs mt-1"
+                  role="alert"
+                >
+                  Please enter a valid name.
+                </p>
               )}
             </div>
-            
+
             <div>
               <input
                 type="tel"
@@ -155,12 +173,20 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
                 required
                 onChange={handleChange}
                 className={inputClass(formErrors.phone)}
+                aria-invalid={formErrors.phone}
+                aria-describedby={formErrors.phone ? "phone-error" : undefined}
               />
               {formErrors.phone && (
-                <p className="text-red-500 text-xs mt-1">Please enter a valid 10-digit phone number</p>
+                <p
+                  id="phone-error"
+                  className="text-[#ef4444] text-xs mt-1"
+                  role="alert"
+                >
+                  Please enter a valid 10-digit phone number.
+                </p>
               )}
             </div>
-            
+
             <div>
               <input
                 type="email"
@@ -170,45 +196,72 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
                 required
                 onChange={handleChange}
                 className={inputClass(formErrors.email)}
+                aria-invalid={formErrors.email}
+                aria-describedby={formErrors.email ? "email-error" : undefined}
               />
               {formErrors.email && (
-                <p className="text-red-500 text-xs mt-1">Please enter a valid email address</p>
+                <p
+                  id="email-error"
+                  className="text-[#ef4444] text-xs mt-1"
+                  role="alert"
+                >
+                  Please enter a valid email address.
+                </p>
               )}
             </div>
 
-            <div className="flex gap-4">
-              <label className="flex items-center gap-2">
+            <fieldset className="flex gap-6 justify-center" aria-label="Apartment Interest">
+              <label className="flex items-center gap-2 cursor-pointer text-[#485e4c] font-medium select-none transition-colors hover:text-[#5b6c55]">
                 <input
                   type="radio"
                   name="interest"
                   value="1bhk"
                   checked={interest === "1bhk"}
                   onChange={() => setInterest("1bhk")}
+                  className="accent-[#485e4c] cursor-pointer"
                 />
                 1 BHK
               </label>
-              <label className="flex items-center gap-2">
+              <label className="flex items-center gap-2 cursor-pointer text-[#485e4c] font-medium select-none transition-colors hover:text-[#5b6c55]">
                 <input
                   type="radio"
                   name="interest"
                   value="2bhk"
                   checked={interest === "2bhk"}
                   onChange={() => setInterest("2bhk")}
+                  className="accent-[#485e4c] cursor-pointer"
                 />
                 2 BHK
               </label>
-            </div>
+            </fieldset>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-lime-600 text-white py-2 rounded hover:bg-lime-700 disabled:bg-lime-400 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full bg-[#485e4c] text-[#f0f0ec] py-3 rounded-lg font-semibold flex items-center justify-center transition-colors disabled:bg-[#7d927b] disabled:cursor-not-allowed hover:bg-[#5b6c55]"
+              aria-busy={isSubmitting}
             >
               {isSubmitting ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#f0f0ec]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
                   </svg>
                   Submitting...
                 </>

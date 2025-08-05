@@ -11,9 +11,9 @@ const amenities = [
 
 const AmenitiesSection = () => {
   return (
-    <section className="bg-green-50 py-14">
+    <section className="bg-[#e4e2dc] py-14">
       <Container>
-        <h3 className="text-center text-4xl font-bold text-lime-600 mb-10">
+        <h3 className="text-center text-4xl font-bold text-[#485e4c] mb-10">
           Amenities
         </h3>
 
@@ -21,12 +21,12 @@ const AmenitiesSection = () => {
           {amenities.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center text-center h-30 bg-white rounded-xl p-2 shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105 cursor-pointer"
+              className="flex flex-col items-center justify-center text-center h-30 bg-[#f0f0ec] rounded-xl p-2 shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105 cursor-pointer"
             >
               <div className="text-5xl transition duration-300 hover:scale-110 hover:-translate-y-1">
                 {item.icon}
               </div>
-              <p className="mt-2 text-sm font-medium text-gray-700">
+              <p className="mt-2 text-sm font-medium text-[#9ca098]">
                 {item.label}
               </p>
             </div>

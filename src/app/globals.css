@@ -132,19 +132,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Assuming you are using Tailwind in CSS file with PostCSS */
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  @apply bg-lime-100 rounded-full w-24 h-14 p-4 flex items-center justify-center z-30; /* Tailwind classes */
+  @apply rounded-full w-24 h-14 p-4 flex items-center justify-center z-30;
+  background-color: #e4e2dc; /* Warm neutral beige */
+  color: #485e4c; /* Deep olive green */
+  font-size: 1rem; /* text-base */
+  z-index: 9999;
 }
 
 .swiper-button-prev {
   @apply ml-8;
 }
+
 .swiper-button-next {
   @apply mr-8;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  @apply text-lime-600 text-base z-[9999];
 }

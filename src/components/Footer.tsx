@@ -3,15 +3,15 @@ import Container from "./Container";
 
 const Footer = () => {
   return (
-    <footer className="bg-lime-100 text-gray-800 pt-10">
+    <footer className="bg-[#e4e2dc] text-[#485e4c] pt-10">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {/* Address Section */}
           <div>
-            <h3 className="text-xl font-semibold text-lime-700 mb-3">
+            <h3 className="text-xl font-semibold text-[#5b6c55] mb-4 tracking-wider drop-shadow-sm">
               Our Address
             </h3>
-            <p className="text-sm leading-relaxed text-gray-700">
+            <p className="text-sm leading-relaxed text-[#7d927b] max-w-xs">
               Lokhandwala Township, Shop-2, Whispering Palms, Shopping Arcade,
               <br />
               Akurli Road, Kandivali East,
@@ -22,14 +22,14 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div>
-            <h3 className="text-xl font-semibold text-lime-700 mb-3">
+            <h3 className="text-xl font-semibold text-[#5b6c55] mb-4 tracking-wider drop-shadow-sm">
               Contact Us
             </h3>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-[#7d927b]">
               Email:{" "}
               <a
                 href="mailto:sales@svselevate.com"
-                className="text-lime-700 underline hover:text-lime-900 transition"
+                className="text-[#485e4c] underline hover:text-[#485e4c] hover:brightness-90 transition"
               >
                 sales@svselevate.com
               </a>
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Note */}
-        <div className="py-5 border-t border-lime-200 text-center text-sm text-gray-600">
+        <div className="py-6 border-t border-[#bebfbc] text-center text-sm text-[#9ca098] mt-10 select-none">
           &copy; {new Date().getFullYear()} SVS Elevate. All rights reserved.
         </div>
       </Container>
