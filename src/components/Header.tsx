@@ -36,11 +36,9 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full border-b z-50 transition-all duration-300 border-none ${
-        isScrolled
-          ? "bg-[#485e4ccc] backdrop-blur-md"
-          : "bg-[#485e4c]"
-      }`}
+      className={`fixed top-0 w-full border-b z-50 transition-all duration-300 border-none 
+           bg-[#485e4c]
+      `}
     >
       <Container>
         <nav className="h-16 flex items-center justify-between">
@@ -73,7 +71,7 @@ const Header = () => {
           <div className="flex items-center gap-2 md:gap-6">
             {/* WhatsApp Button for Mobile */}
             <Link
-              href="https://wa.me/9867715855"
+              href="https://wa.me/8691914545"
               target="_blank"
               rel="noopener noreferrer"
               className="flex md:hidden justify-center items-center w-8 h-8 rounded-full bg-[#f0f0ec] hover:bg-[#e4e2dc]"
@@ -83,7 +81,7 @@ const Header = () => {
 
             {/* WhatsApp Button for Desktop */}
             <Link
-              href="https://wa.me/9867715855"
+              href="https://wa.me/8691914545"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 bg-[#f0f0ec] text-[#485e4c] hover:bg-[#e4e2dc] px-4 py-2 rounded-lg font-medium transition-colors"

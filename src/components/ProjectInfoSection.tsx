@@ -113,7 +113,7 @@ const ProjectInfoSection = () => {
           className="absolute inset-0 bg-cover bg-fixed bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1730040200728-ebbf6ea4cc1a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+              "url('https://images.unsplash.com/photo-1622449784980-cdb3f8a88be8?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
           }}
         ></div>
         <div className="relative p-6 md:p-0">
@@ -125,7 +125,7 @@ const ProjectInfoSection = () => {
               {highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center gap-4 p-4 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc]/90 shadow-sm bg-[#f0f0ec]/80"
+                  className="group flex flex-col items-center text-center gap-4 p-4 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc] shadow-sm bg-[#f0f0ec]"
                 >
                   {highlight.icon}
                   <div>

@@ -8,40 +8,40 @@ import {
   ShoppingCart,
   UtensilsCrossed,
   BriefcaseBusiness,
-  Dumbbell,
+  Film,
   TreePine,
 } from "lucide-react";
 
 const connectivityData = [
   {
-    icon: Train,
-    title: "Nearest Railway Station",
-    distance: "2.5 km away",
-  },
-  {
     icon: Hospital,
-    title: "Nearest Hospital",
-    distance: "1.8 km away",
+    title: "Hospital & Healthcare Facilities",
+    distance: "Ozone Hitech Multispeciality Hospital, Relie Hospital Palghar, Within 10 minutes from site.",
   },
   {
     icon: School,
-    title: "Nearest School",
-    distance: "1.2 km away",
+    title: "Schools & Educational Institutions",
+    distance: "While 10 mins from site St. John International School, Holy Spirit High School and Jr College Sacred Heart High School, Palghar Emmanuel International School",
   },
   {
     icon: Bus,
-    title: "Nearest Bus Stop",
-    distance: "500 m away",
+    title: "Transportation",
+    distance: "Just 5 mins away. Proximity to railway station and bus stop, proposed infrastructure projects",
   },
   {
     icon: ShoppingCart,
-    title: "Shopping Mall",
-    distance: "3.5 km away",
+    title: "Shopping & Entertainment",
+    distance: "Zudio, Vijay Sales, Mr. DIY, Reliance trends, Croma, Reliance Super Market",
   },
   {
-    icon: UtensilsCrossed,
-    title: "Restaurants",
-    distance: "1.0 km away",
+    icon: TreePine,
+    title: "Green Spaces/Recreation Areas",
+    distance: "Parks, Beaches, natural beauty of Palghar. Waghoba Waterfall, Kelva Beach, Shirgaon Fort, Mahin Beach",
+  },
+  {
+    icon: Film ,
+    title: "Movie Theatre",
+    distance: "Gold Cinema, Palghar :- 10 mins from project",
   },
   {
     icon: BriefcaseBusiness,
@@ -49,14 +49,14 @@ const connectivityData = [
     distance: "4 km away",
   },
   {
-    icon: Dumbbell,
-    title: "Fitness Center",
-    distance: "2 km away",
+    icon: Train,
+    title: "Nearest Railway Station",
+    distance: "Within 1 km away",
   },
   {
-    icon: TreePine,
-    title: "Public Park",
-    distance: "1 km away",
+    icon: UtensilsCrossed,
+    title: "Restaurants",
+    distance: "1.0 km away",
   },
 ];
 
@@ -87,11 +87,11 @@ const ConnectivitySection: React.FC = () => {
                   key={index}
                   className="flex items-center gap-5 bg-[#e4e2dc] rounded-xl p-5 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-default"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#485e4c]/20 text-[#485e4c] shadow-inner transition-transform duration-300 group-hover:scale-110">
+                  <div className="flex items-center justify-center min-w-12 min-h-12 rounded-full bg-[#485e4c]/20 text-[#485e4c] shadow-inner transition-transform duration-300 group-hover:scale-110">
                     <IconComponent className="w-7 h-7" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#485e4c] text-lg leading-tight">
+                    <p className="font-semibold text-[#485e4c] text-base leading-tight">
                       {item.title}
                     </p>
                     <p className="text-[#7d927b] text-sm mt-1">{item.distance}</p>

@@ -1,8 +1,8 @@
 import PhotoCarousel from "@/components/Carousel/Carousel";
 import ResidentialOne from "../../public/images/banner-one.webp";
-import ResidentialTwo from "../../public/images/banner-two.jpeg";
-import ResidentialThree from "../../public/images/banner-three.jpeg";
-import ResidentialFour from "../../public/images/banner-four.jpeg";
+import ResidentialTwo from "../../public/images/banner-two.webp";
+import ResidentialThree from "../../public/images/banner-three.webp";
+import ResidentialFour from "../../public/images/banner-four.webp";
 import ProjectInfoSection from "@/components/ProjectInfoSection";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import GalleryCarousel from "@/components/Carousel/GalleryCarousel";
@@ -27,6 +27,11 @@ const images = [
     id: 3,
     image: ResidentialThree,
     alt: "Residential Image Three",
+  },
+  {
+    id: 4,
+    image: ResidentialFour,
+    alt: "Residential Image Four",
   },
 ];
 
