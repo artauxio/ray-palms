@@ -6,9 +6,13 @@ const StickyActionButtons = () => {
     <div className="fixed right-0 top-[10%] z-30 flex flex-col items-end space-y-60">
       {/* Wrapper 1 */}
       <div>
-        <button className="bg-yellow-500 text-white font-semibold px-1 py-1 w-50 h-8 transform -rotate-90 origin-bottom-right hover:bg-yellow-600 transition-all shadow-md text-sm">
+        <a
+          href="/RAY_PALMS%20_%20BROCHURE.pdf"
+          download="Ray-Palms-Brochure.pdf"
+          className="bg-yellow-500 text-white font-semibold px-1 py-1 w-50 h-8 transform -rotate-90 origin-bottom-right hover:bg-yellow-600 transition-all shadow-md text-sm flex items-center justify-center"
+        >
           DOWNLOAD BROCHURE
-        </button>
+        </a>
       </div>
 
       {/* Wrapper 2 */}

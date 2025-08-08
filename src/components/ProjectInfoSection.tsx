@@ -125,7 +125,7 @@ const ProjectInfoSection = () => {
               {highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center gap-4 p-4 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc]/90 shadow-sm bg-[#f0f0ec]/80"
+                  className="group flex flex-col items-center text-center gap-4 p-4 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc] shadow-sm bg-[#f0f0ec]"
                 >
                   {highlight.icon}
                   <div>

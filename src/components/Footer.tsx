@@ -5,11 +5,11 @@ const Footer = () => {
   return (
     <footer className="bg-[#e4e2dc] text-[#485e4c] pt-10">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {/* Address Section */}
           <div>
             <h3 className="text-xl font-semibold text-[#5b6c55] mb-4 tracking-wider drop-shadow-sm">
-              Our Address
+              Head Office
             </h3>
             <p className="text-sm leading-relaxed text-[#7d927b] max-w-xs">
               Lokhandwala Township, Shop-2, Whispering Palms, Shopping Arcade,
@@ -17,6 +17,18 @@ const Footer = () => {
               Akurli Road, Kandivali East,
               <br />
               Mumbai, Maharashtra, India - 400101
+            </p>
+          </div>
+
+          {/* Site Location Section */}
+          <div>
+            <h3 className="text-xl font-semibold text-[#5b6c55] mb-4 tracking-wider drop-shadow-sm">
+              Site Location
+            </h3>
+            <p className="text-sm leading-relaxed text-[#7d927b] max-w-xs">
+              Survey no-37/2/D/ Plot no.1, village - Navli, adjoining to lokmanya nagar,
+              <br />
+              Palghar West district Palghar 401404
             </p>
           </div>
 
@@ -33,6 +45,15 @@ const Footer = () => {
               >
                 sales@svselevate.com
               </a>
+            </p>
+            <p className="text-sm text-[#7d927b]">
+              Phone Number:{" "}
+              <span
+                
+                className="text-[#485e4c] underline hover:text-[#485e4c] hover:brightness-90 transition"
+              >
+                +91 8691914545
+              </span>
             </p>
           </div>
         </div>
