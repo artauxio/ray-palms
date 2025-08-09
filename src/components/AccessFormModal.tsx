@@ -12,9 +12,10 @@ type Props = {
     phone: string;
     interest: "1bhk" | "2bhk";
   }) => void;
+  title?: string;
 };
 
-const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
+const AccessFormModal = ({ isOpen, onClose, onSubmit, title }: Props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -72,14 +73,22 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
       onSubmit({ name, email, phone, interest });
 
       const scriptUrl =
-        "https://script.google.com/macros/s/AKfycbxqqxSx58apkPk-gKWhFmjfHB0vAqc9Ktjxljm9ttWFsORdPTCUzoF3nsibQU9CwhX8/exec";
-      const formData = new URLSearchParams();
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("phone", phone);
-      formData.append("interest", interest);
+        "https://script.google.com/macros/s/AKfycbyVIyvy1UxhjbTsDQgHIcb_9S2OZuV-GIes8I-PX7VbY3evebE2ipzLm5FntW_DJdKl-A/exec";
 
-      await fetch(scriptUrl, { method: "POST", body: formData });
+      await fetch(scriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: name,
+          phoneNumber: phone,
+          email,
+          city: "",
+          message: `Interest: ${interest.toUpperCase()}`,
+        }),
+        mode: "no-cors",
+      });
 
       setShowSuccessCard(true);
     } catch (error) {
@@ -137,7 +146,7 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
             id="access-form-modal-title"
             className="text-2xl font-semibold mb-6 text-[#485e4c] text-center"
           >
-            Get Floor Plan & EMI Calculator Access
+            {title ?? "Get Floor Plan & EMI Calculator Access"}
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-5">
