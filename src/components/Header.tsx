@@ -11,9 +11,14 @@ const sectionLinks = {
   Home: "/",
   About: "/about",
   Contact: "#contact",
+  WorkWithUs:"/work-with-us"
 };
 
 const Header = () => {
+  const formatNavLabel = (label: string): string => {
+    return label.replace(/([a-z])([A-Z])/g, "$1 $2").trim();
+  };
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isRotated, setIsRotated] = useState(false);
@@ -62,7 +67,7 @@ const Header = () => {
                 scroll={true}
                 className="text-[#f0f0ec] hover:text-[#7d927b] transition-colors"
               >
-                {label}
+                {formatNavLabel(label)}
               </Link>
             ))}
           </div>
@@ -131,7 +136,7 @@ const Header = () => {
               className="block text-base font-medium hover:text-[#7d927b] transition-colors"
               onClick={() => setMenuOpen(false)}
             >
-              {label}
+              {formatNavLabel(label)}
             </Link>
           ))}
           <Link

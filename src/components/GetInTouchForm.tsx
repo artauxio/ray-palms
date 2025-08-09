@@ -11,7 +11,15 @@ interface FormData {
   message: string;
 }
 
-const GetInTouchForm = () => {
+interface GetInTouchFormProps {
+  title?: string;
+  nameLabel?: string;
+}
+
+const GetInTouchForm = ({
+  title = "Get In Touch",
+  nameLabel = "Full Name",
+}: GetInTouchFormProps) => {
   const initialFormData: FormData = {
     fullName: "",
     phoneNumber: "",
@@ -120,7 +128,7 @@ const GetInTouchForm = () => {
     <>
       <section className="bg-[#e4e2dc] text-[#485e4c] py-16 px-4">
         <Container>
-          <h2 className="text-3xl font-semibold mb-2 text-[#485e4c]">Get In Touch</h2>
+          <h2 className="text-4xl font-semibold mb-2 text-[#485e4c]">{title}</h2>
           <p className="text-[#7d927b] mb-8">
             Fill in your details and our team will get in touch with you
           </p>
@@ -136,7 +144,7 @@ const GetInTouchForm = () => {
                 htmlFor="fullName"
                 className="mb-1 text-sm font-medium text-[#485e4c]"
               >
-                Full Name
+                {nameLabel}
               </label>
               <input
                 type="text"
@@ -144,7 +152,7 @@ const GetInTouchForm = () => {
                 id="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Enter your full name"
+                placeholder={`Enter your ${nameLabel.toLowerCase()}`}
                 className={inputClass(formErrors.fullName)}
                 required
               />

@@ -1,6 +1,28 @@
 "use client";
 import React from "react";
 import Container from "@/components/Container";
+import {
+  Trees,
+  Home,
+  Sun,
+  DoorOpen,
+  Baby,
+  CloudRain,
+  Plug,
+  Paintbrush,
+  ChefHat,
+  ShoppingCart,
+  Fan,
+  Droplet,
+  Grid2x2,
+  Thermometer,
+  Wind,
+  LayoutGrid,
+  Sparkles,
+  Lightbulb,
+  Ruler,
+} from "lucide-react";
+
 
 const infoItems = [
   { title: "Location", value: "Palghar, Mumbai" },
@@ -15,7 +37,7 @@ const highlights = [
     description: "Spacious 1 & 2 BHK apartments with modern aesthetics.",
     icon: (
       <svg
-        className="w-8 h-8 text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+        className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -28,7 +50,7 @@ const highlights = [
     description: "Beautifully landscaped gardens and open spaces.",
     icon: (
       <svg
-        className="w-8 h-8 text-[#5b6c55] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+        className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#5b6c55] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
         fill="currentColor"
         viewBox="0 0 24 24"
       >
@@ -41,11 +63,11 @@ const highlights = [
     description: "Homes designed keeping traditional Vastu principles in mind.",
     icon: (
       <svg
-        className="w-8 h-8 text-[#7d927b] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+        className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#7d927b] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
         fill="currentColor"
-        viewBox="0 0 24 24"
+        viewBox="0 0 20 20"
       >
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+        <path d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 10-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" />
       </svg>
     ),
   },
@@ -54,7 +76,7 @@ const highlights = [
     description: "Well-connected to schools, malls, and transport hubs.",
     icon: (
       <svg
-        className="w-8 h-8 text-[#bebfbc] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
+        className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#bebfbc] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -62,6 +84,157 @@ const highlights = [
       </svg>
     ),
   },
+  // External Key Highlights
+  {
+    title: "Garden Amenities",
+    description: "",
+    icon: (
+      <Trees className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Peaceful Residential Neighborhood",
+    description: "",
+    icon: (
+      <Home className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Smart Layouts with Ample Natural Light",
+    description: "",
+    icon: (
+      <Sun className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Children’s Playing Area",
+    description: "",
+    icon: (
+      <Baby className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Rain Water Harvesting",
+    description: "",
+    icon: (
+      <CloudRain className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  // Internal Key Highlights
+  {
+    title: "Wooden & Granite Frame for Doors and Windows",
+    description: "",
+    icon: (
+      <Ruler className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title:
+      "Concealed Copper Wiring with Premium Quality Switches and Sockets",
+    description: "",
+    icon: (
+      <Plug className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Gypsum Finished Wall",
+    description: "",
+    icon: (
+      <Paintbrush className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Granite Kitchen Platform with Stainless Steel Sink",
+    description: "",
+    icon: (
+      <ChefHat className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Full Height Tiles in Kitchen",
+    description: "",
+    icon: (
+      <Grid2x2 className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Modular Kitchen Trolley",
+    description: "",
+    icon: (
+      <ShoppingCart className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Exhaust Fan in Kitchen",
+    description: "",
+    icon: (
+      <Fan className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Attractive Design Gates",
+    description: "",
+    icon: (
+      <DoorOpen className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "R.O. Water Purifier in Kitchen",
+    description: "",
+    icon: (
+      <Droplet className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Premium Quality Wall Tiles in WC and Bathroom",
+    description: "",
+    icon: (
+      <Grid2x2 className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Geyser in Bathroom",
+    description: "",
+    icon: (
+      <Thermometer className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Exhaust in Bathroom",
+    description: "",
+    icon: (
+      <Wind className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Vitrified Flooring in All Rooms",
+    description: "",
+    icon: (
+      <LayoutGrid className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Decorative Main Door with a Quality Fixture",
+    description: "",
+    icon: (
+      <Sparkles className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Heavy Aluminum Anodized Sliding Windows",
+    description: "",
+    icon: (
+      <Home className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+  {
+    title: "Gypsum False Ceiling in Entire Flat with Lights and Fans",
+    description: "",
+    icon: (
+      <Lightbulb className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
+    ),
+  },
+
 ];
 
 const ProjectInfoSection = () => {
@@ -121,11 +294,11 @@ const ProjectInfoSection = () => {
             <h3 className="text-center text-4xl font-bold text-[#f0f0ec] mb-12">
               Project Highlights
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {highlights.map((highlight, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center gap-4 p-4 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc] shadow-sm bg-[#f0f0ec]"
+                  className="group flex flex-col items-center justify-center text-center gap-4 p-6 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc] shadow-sm bg-[#f0f0ec] h-36 w-full"
                 >
                   {highlight.icon}
                   <div>
