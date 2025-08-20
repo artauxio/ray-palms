@@ -73,7 +73,7 @@ const AccessFormModal = ({ isOpen, onClose, onSubmit, title }: Props) => {
       onSubmit({ name, email, phone, interest });
 
       const scriptUrl =
-        "https://script.google.com/macros/s/AKfycbyTxzBl8JfytBs8piVXuufH_P4Pq98bnUYdipSn7QGmNTt8VesIqJFCu383wmc4bhyEXw/exec";
+        "https://script.google.com/macros/s/AKfycbyGnYChAPH_VRs7ehTQ5pXFSaRJblLOBjenWoaXlMsgVSs4P58b-lI7KB3tiMrn_Ng6/exec";
 
       await fetch(scriptUrl, {
         method: "POST",
