@@ -12,7 +12,7 @@ const Footer = () => {
               Head Office
             </h3>
             <p className="text-sm leading-relaxed text-[#7d927b] max-w-xs">
-              Lokhandwala Township, Shop-2, Whispering Palms, Shopping Arcade,
+             Shop-2, Whispering Palms Shopping Arcade, Lokhandwala Township, 
               <br />
               Akurli Road, Kandivali East,
               <br />
@@ -26,6 +26,8 @@ const Footer = () => {
               Site Location
             </h3>
             <p className="text-sm leading-relaxed text-[#7d927b] max-w-xs">
+              Ray Palms 
+              <br />
               Survey no-37/2/D/ Plot no.1, village - Navli, adjoining to lokmanya nagar,
               <br />
               Palghar West district Palghar 401404
