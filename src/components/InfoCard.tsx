@@ -10,7 +10,7 @@ const infoItems: InfoItem[] = [
   { title: "Location", value: "Palghar, Mumbai" },
   { title: "Price Starting At", value: "₹ 30 L" },
   { title: "Apartment Type", value: "1 & 2 BHK" },
-  { title: "Carpet Area", value: "555 sq.ft" },
+  { title: "Carpet Area", value: "410 sq.ft & 656 sq.ft" },
 ];
 
 // A small helper component for 3D tilt
