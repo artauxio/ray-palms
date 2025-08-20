@@ -8,7 +8,7 @@ type InfoItem = {
 
 const infoItems: InfoItem[] = [
   { title: "Location", value: "Palghar, Mumbai" },
-  { title: "Price Starting At", value: "₹ 30 L" },
+  { title: "Price Starting At", value: "₹ 26* L" },
   { title: "Apartment Type", value: "1 & 2 BHK" },
   { title: "Carpet Area", value: "410 sq.ft & 656 sq.ft" },
 ];
