@@ -21,7 +21,7 @@ const connectivityData = [
   {
     icon: School,
     title: "Schools & Educational Institutions",
-    distance: "While 10 mins from site St. John International School, Holy Spirit High School and Jr College Sacred Heart High School, Palghar Emmanuel International School",
+    distance: "10 mins from site: St. John International School, Holy Spirit High School and Jr College Sacred Heart High School, Palghar Emmanuel International School",
   },
   {
     icon: Bus,
@@ -41,17 +41,17 @@ const connectivityData = [
   {
     icon: Film ,
     title: "Movie Theatre",
-    distance: "Gold Cinema, Palghar :- 10 mins from project",
+    distance: "Gold Cinema, Palghar: 10 mins from project",
   },
   {
     icon: BriefcaseBusiness,
     title: "Business Hub",
-    distance: "4 km away",
+    distance: "Within 2 km",
   },
   {
     icon: Train,
     title: "Nearest Railway Station",
-    distance: "Within 1 km away",
+    distance: "Within 1 km",
   },
   {
     icon: UtensilsCrossed,
