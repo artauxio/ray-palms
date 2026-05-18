@@ -23,14 +23,6 @@ import {
   Ruler,
 } from "lucide-react";
 
-
-const infoItems = [
-  { title: "Location", value: "Palghar, Mumbai" },
-  { title: "Price Starting At", value: "₹ 26 L*" },
-  { title: "Apartment Type", value: "1 & 2 BHK" },
-  { title: "Carpet Area", value: "555 sq.ft" },
-];
-
 const highlights = [
   {
     title: "Luxury Residences",
@@ -85,215 +77,60 @@ const highlights = [
     ),
   },
   // External Key Highlights
-  {
-    title: "Garden Amenities",
-    description: "",
-    icon: (
-      <Trees className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Peaceful Residential Neighborhood",
-    description: "",
-    icon: (
-      <Home className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Smart Layouts with Ample Natural Light",
-    description: "",
-    icon: (
-      <Sun className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Children’s Playing Area",
-    description: "",
-    icon: (
-      <Baby className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Rain Water Harvesting",
-    description: "",
-    icon: (
-      <CloudRain className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
+  { title: "Garden Amenities", description: "", icon: <Trees className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Peaceful Residential Neighborhood", description: "", icon: <Home className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Smart Layouts with Ample Natural Light", description: "", icon: <Sun className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Children's Playing Area", description: "", icon: <Baby className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Rain Water Harvesting", description: "", icon: <CloudRain className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
   // Internal Key Highlights
-  {
-    title: "Wooden & Granite Frame for Doors and Windows",
-    description: "",
-    icon: (
-      <Ruler className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title:
-      "Concealed Copper Wiring with Premium Quality Switches and Sockets",
-    description: "",
-    icon: (
-      <Plug className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Gypsum Finished Wall",
-    description: "",
-    icon: (
-      <Paintbrush className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Granite Kitchen Platform with Stainless Steel Sink",
-    description: "",
-    icon: (
-      <ChefHat className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Full Height Tiles in Kitchen",
-    description: "",
-    icon: (
-      <Grid2x2 className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Modular Kitchen Trolley",
-    description: "",
-    icon: (
-      <ShoppingCart className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Exhaust Fan in Kitchen",
-    description: "",
-    icon: (
-      <Fan className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Attractive Design Gates",
-    description: "",
-    icon: (
-      <DoorOpen className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "R.O. Water Purifier in Kitchen",
-    description: "",
-    icon: (
-      <Droplet className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Premium Quality Wall Tiles in WC and Bathroom",
-    description: "",
-    icon: (
-      <Grid2x2 className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Geyser in Bathroom",
-    description: "",
-    icon: (
-      <Thermometer className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Exhaust in Bathroom",
-    description: "",
-    icon: (
-      <Wind className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Vitrified Flooring in All Rooms",
-    description: "",
-    icon: (
-      <LayoutGrid className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Decorative Main Door with a Quality Fixture",
-    description: "",
-    icon: (
-      <Sparkles className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Heavy Aluminum Anodized Sliding Windows",
-    description: "",
-    icon: (
-      <Home className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-  {
-    title: "Gypsum False Ceiling in Entire Flat with Lights and Fans",
-    description: "",
-    icon: (
-      <Lightbulb className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c] transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1" />
-    ),
-  },
-
+  { title: "Wooden & Granite Frame for Doors and Windows", description: "", icon: <Ruler className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Concealed Copper Wiring with Premium Quality Switches and Sockets", description: "", icon: <Plug className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Gypsum Finished Wall", description: "", icon: <Paintbrush className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Granite Kitchen Platform with Stainless Steel Sink", description: "", icon: <ChefHat className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Full Height Tiles in Kitchen", description: "", icon: <Grid2x2 className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Modular Kitchen Trolley", description: "", icon: <ShoppingCart className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Exhaust Fan in Kitchen", description: "", icon: <Fan className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Attractive Design Gates", description: "", icon: <DoorOpen className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "R.O. Water Purifier in Kitchen", description: "", icon: <Droplet className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Premium Quality Wall Tiles in WC and Bathroom", description: "", icon: <Grid2x2 className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Geyser in Bathroom", description: "", icon: <Thermometer className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Exhaust in Bathroom", description: "", icon: <Wind className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Vitrified Flooring in All Rooms", description: "", icon: <LayoutGrid className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Decorative Main Door with a Quality Fixture", description: "", icon: <Sparkles className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
+  { title: "Heavy Aluminum Anodized Sliding Windows", description: "", icon: <Home className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" /> },
 ];
 
 const ProjectInfoSection = () => {
   return (
     <section className="bg-gradient-to-br from-[#d7d9d5] via-[#f0f0ec] to-[#e4e2dc] pt-14">
       <Container>
-        {/* Info Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {infoItems.map((item, index) => (
-            <div
-              key={index}
-              className="relative bg-gradient-to-br from-[#f0f0ec] via-[#d7d9d5] to-[#e4e2dc] rounded-2xl shadow-2xl p-6 text-center transform-gpu"
-              style={{
-                perspective: "800px",
-                boxShadow:
-                  "0 4px 20px 4px #d1fae5, 0 8px 38px 12px #b6f2b7, 0 1.5px 0.5px #ccc",
-              }}
-            >
-              {/* Faux 3D border highlight */}
-              <div
-                className="absolute inset-0 rounded-2xl pointer-events-none"
-                style={{
-                  boxShadow:
-                    "inset 2px 2px 8px rgba(176, 255, 171, 0.35), inset -6px -8px 16px rgba(54, 143, 54, 0.18)",
-                }}
-              />
-              <h4 className="relative text-lg font-semibold text-[#485e4c] mb-1 z-10 drop-shadow-lg">
-                {item.title}
-              </h4>
-              <p className="relative text-[#9ca098] z-10 drop-shadow">{item.value}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Welcome Message */}
-        <div className="text-center my-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#485e4c] mb-2">
+        <div className="text-center my-30">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#485e4c] mb-6">
             Welcome to Ray Palms
           </h2>
-          <p className="text-[#9ca098] text-base md:text-lg">
+          <p className=" text-[#60645d] text-xl md:text-xl">
             Palghar — where comfort, peace, and connectivity come together.
           </p>
         </div>
       </Container>
 
-      {/* Project Highlights */}
       <div className="relative overflow-hidden py-24">
         <div
           className="absolute inset-0 bg-cover bg-fixed bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1622449784980-cdb3f8a88be8?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+              "url('https://images.unsplash.com/photo-1622449784980-cdb3f8a88be8?q=80&w=1976&auto=format&fit=crop')",
           }}
         ></div>
-        <div className="relative p-6 md:p-0">
-          <Container>
-            <h3 className="text-center text-4xl font-bold text-[#f0f0ec] mb-12">
-              Project Highlights
-            </h3>
+       <div className="relative p-6 md:p-0">
+  <Container>
+    <div className="flex justify-center mb-12">
+      <div className="bg-[#f0f0ec] bg-opacity-20 backdrop-blur-sm rounded-2xl px-8 py-4">
+        <h3 className="text-center text-4xl font-bold text-[#586a54]">
+          Project Highlights
+        </h3>
+      </div>
+    </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {highlights.map((highlight, index) => (
                 <div
@@ -305,10 +142,24 @@ const ProjectInfoSection = () => {
                     <h4 className="text-lg font-semibold text-[#485e4c] mb-1">
                       {highlight.title}
                     </h4>
-                    <p className="text-[#9ca098] text-sm">{highlight.description}</p>
+                    <p className="text-[#9ca098] text-sm">
+                      {highlight.description}
+                    </p>
                   </div>
                 </div>
               ))}
+
+              {/* Last card centered */}
+              <div className="sm:col-span-2 lg:col-span-3 flex justify-center">
+                <div className="group flex flex-col items-center justify-center text-center gap-4 p-6 rounded-xl transition duration-300 transform hover:scale-105 hover:bg-[#e4e2dc] shadow-sm bg-[#f0f0ec] h-36 w-full sm:w-2/3 md:w-1/2">
+                  <Lightbulb className="w-8 h-8 min-w-[2rem] min-h-[2rem] text-[#485e4c]" />
+                  <div>
+                    <h4 className="text-lg font-semibold text-[#485e4c] mb-1">
+                      Gypsum False Ceiling in Entire Flat with Lights and Fans
+                    </h4>
+                  </div>
+                </div>
+              </div>
             </div>
           </Container>
         </div>

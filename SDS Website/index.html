@@ -1,0 +1,1231 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sneharch Design Studio</title>
+ <link rel="icon" href="./Assets/favicon/01.png" type="image/x-icon">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Zodiak', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#F4BB2C',
+                        'primary-dark': '#F59E0B',
+                        'primary-light': '#FEF3C7',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                }
+            }
+        }
+   
+
+  /* Optional: styling video card for consistency */
+  .video - item {
+        width: 100 %;
+        max - width: 320px; /* controls the width of the card */
+    }
+
+    @media(min - width: 768px) {
+    .video - item {
+            max - width: 280px; /* slightly smaller cards on larger screens */
+        }
+    }
+
+    @media(min - width: 1024px) {
+    .video - item {
+            max - width: 260px;
+        }
+    }
+    </script>
+
+    <!-- Local Zodiak Fonts -->
+    <style>
+        @font-face {
+            font-family: 'Zodiak';
+            src: url('./assets/fonts/ttf/Zodiak-Variable.ttf') format('truetype');
+            font-weight: 100 900;
+            /* Full range */
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Zodiak';
+            src: url('./assets/fonts/ttf/Zodiak-VariableItalic.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #F4BB2C, #FFE08A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            padding-bottom: 0.2em;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(02px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        
+    </style>
+
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #0f0f0f;
+                color: #f3f3f3;
+            }
+
+            .glass-effect {
+                background: rgba(20, 20, 20, 0.7);
+                backdrop-filter: blur(5px);
+            }
+
+            header,
+            footer,
+            section,
+            .bg-white,
+            .bg-yellow-50,
+            .bg-gradient-to-b,
+            .bg-gradient-to-br,
+            .bg-white\/80 {
+                background-color: #1a1a1a !important;
+                background-image: none !important;
+            }
+
+            .text-gray-900,
+            .text-gray-800,
+            .text-gray-600,
+            .text-gray-400 {
+                color: #e0e0e0 !important;
+            }
+
+            .text-white {
+                color: #fff;
+            }
+
+            .bg-yellow-400 {
+                background-color: #facc15 !important;
+            }
+
+            .border-yellow-200,
+            .border-gray-300,
+            .border-gray-800 {
+                border-color: #333 !important;
+            }
+
+            .bg-yellow-200,
+            .bg-yellow-300,
+            .bg-yellow-50,
+            .from-yellow-50,
+            .to-white,
+            .from-yellow-200,
+            .to-yellow-400 {
+                background-color: #3a3a3a !important;
+            }
+
+            .service-card,
+            .portfolio-item,
+            .shadow-lg,
+            .hover\:shadow-xl {
+                background-color: #222 !important;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            }
+
+            .indicator.bg-gray-300 {
+                background-color: #444 !important;
+            }
+
+            input,
+            textarea,
+            select {
+                background-color: #222 !important;
+                color: #eee;
+                border-color: #444;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: #aaa;
+            }
+
+            .hover\:text-yellow-600:hover {
+                color: #facc15;
+            }
+
+            .text-yellow-600 {
+                color: #facc15;
+            }
+        }
+
+        .video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-item {
+    width: 100%;
+    max-width: 300px; /* Optional for uniformity */
+  }
+
+    </style>
+
+</head>
+
+
+<body class="bg-white font-sans">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-effect border-b border-yellow-200 transition-all duration-300"
+        id="header">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div><img src="./Assets/logo/sneharch logo.png" alt="Sneharch Design Studio Logo"
+                            class="h-12 object-contain" /></div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#hero-slider"
+                            class="nav-link text-yellow-400 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#services"
+                            class="nav-link text-yellow-400 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="#portfolio"
+                            class="nav-link text-yellow-400 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Portfolio</a>
+                        <a href="#about"
+                            class="nav-link text-yellow-400 hover:text-yellow-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="https://wa.link/dzwfy3"
+                            class="bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg">Contact</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-yellow-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-yellow-200">
+                    <a href="#hero-slider"
+                        class="block text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                    <a href="#services"
+                        class="block text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-base font-medium">Services</a>
+                    <a href="#portfolio"
+                        class="block text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-base font-medium">Portfolio</a>
+                    <a href="#about"
+                        class="block text-gray-700 hover:text-yellow-600 px-3 py-2 rounded-md text-base font-medium">About</a>
+                    <a href="#contact"
+                        class="block bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Photo Hero Section-->
+    <section class="relative w-full h-screen overflow-hidden" id="hero-slider">
+        <!-- Slides -->
+        <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 bg-cover bg-center flex items-center justify-center text-gray-900 slide"
+        style="background-image: url('./Assets/hero banner images/01.jpg');">
+            <div
+                class="bg-white/80 backdrop-blur-lg rounded-2xl px-4 sm:px-8 py-10 text-center max-w-sm sm:max-w-xl w-full mx-4 shadow-lg">
+
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 font-sans font-thin">Sneharch Design Studio</h1>
+                <h2 class="text-xl md:text-2xl font-thin">Designing spaces that speak your story.</h2>
+            </div>
+        </div>
+
+        <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 bg-cover bg-center bg-no-repeat flex items-center justify-center text-gray-900 slide"
+        style="background-image: url('./Assets/hero banner images/02.jpg');">
+            <div
+                class="bg-white/80 backdrop-blur-lg rounded-2xl px-4 sm:px-8 py-10 text-center max-w-sm sm:max-w-xl w-full mx-4 shadow-lg">
+
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 font-thin">Sneharch Design Studio</h1>
+                <h2 class="text-xl md:text-2xl font-medium font-thin">Crafted with precision, tailored to you.</h2>
+            </div>
+        </div>
+
+        <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 bg-cover bg-center flex items-center justify-center text-gray-900 slide"
+        style="background-image: url('./Assets/hero banner images/03.jpg');">
+            <div
+                class="bg-white/80 backdrop-blur-lg rounded-2xl px-4 sm:px-8 py-10 text-center max-w-sm sm:max-w-xl w-full mx-4 shadow-lg">
+
+                <h1 class="text-5xl md:text-6xl mb-4 font-thin">Sneharch Design Studio</h1>
+                <h2 class="text-xl md:text-2xl font-medium font-thin">Where form meets function beautifully.</h2>
+            </div>
+        </div>
+        <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-100 bg-cover bg-center flex items-center justify-center text-gray-900 slide"
+            style="background-image: url('./Assets/hero banner images/04.jpg');">
+            <div
+                class="bg-white/80 backdrop-blur-lg rounded-2xl px-4 sm:px-8 py-10 text-center max-w-sm sm:max-w-xl w-full mx-4 shadow-lg">
+        
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 font-sans font-thin">Sneharch Design Studio</h1>
+                <h2 class="text-xl md:text-2xl font-thin">Designing spaces that speak your story.</h2>
+            </div>
+        </div>
+        
+        <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 bg-cover bg-center bg-no-repeat flex items-center justify-center text-gray-900 slide"
+            style="background-image: url('./Assets/hero banner images/05.jpg');">
+            <div
+                class="bg-white/80 backdrop-blur-lg rounded-2xl px-4 sm:px-8 py-10 text-center max-w-sm sm:max-w-xl w-full mx-4 shadow-lg">
+        
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 font-thin">Sneharch Design Studio</h1>
+                <h2 class="text-xl md:text-2xl font-medium font-thin">Crafted with precision, tailored to you.</h2>
+            </div>
+        </div>
+        
+        <div class="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 bg-cover bg-center flex items-center justify-center text-gray-900 slide"
+            style="background-image: url('./Assets/hero banner images/06.jpg');">
+            <div
+                class="bg-white/80 backdrop-blur-lg rounded-2xl px-4 sm:px-8 py-10 text-center max-w-sm sm:max-w-xl w-full mx-4 shadow-lg">
+        
+                <h1 class="text-5xl md:text-6xl mb-4 font-thin">Sneharch Design Studio</h1>
+                <h2 class="text-xl md:text-2xl font-medium font-thin">Where form meets function beautifully.</h2>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#hero-slider .slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = (i === index) ? '1' : '0';
+            });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        showSlide(currentSlide);
+    </script>
+
+
+    <!-- second hero Section -->
+    <section id="home"
+        class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-50 to-white overflow-hidden">
+        <div class="absolute inset-0 bg-[url(\" data:image/svg+xml,%3Csvg%20width='40' %20height='40'
+            %20viewBox='0%200%2040%2040' %20xmlns='http://www.w3.org/2000/svg' %3E%3Cg%20fill='%23FCD34D'
+            %20fill-opacity='0.1' %3E%3Cpath%20d='M0%2040h40V0H0z' /%3E%3C/g%3E%3C/svg%3E\")] opacity-30"></div>
+
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 sm:py-32">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-medium text-gray-900 mb-6 leading-[1.2]">
+
+                    Transform Your
+                    <span class="gradient-text block mb-6">Living Space</span>
+                </h1>
+            </div>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Experience luxury interior design that reflects your personality and elevates your lifestyle with
+                our award-winning team.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact">
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Start Your Project
+                </button>
+            </a>
+
+            <a href="#portfolio">
+                <button
+                    class="border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-400 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300">
+                    View Portfolio
+                </button>
+            </a>
+            </div>
+        </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-yellow-200 rounded-full opacity-60 animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-16 h-16 bg-yellow-300 rounded-full opacity-40 animate-float"
+            style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-20 w-12 h-12 bg-yellow-400 rounded-full opacity-30 animate-float"
+            style="animation-delay: 2s;"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">From concept to completion, we offer comprehensive
+                    interior design solutions tailored to your vision.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="service-card bg-gradient-to-br from-yellow-50 to-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Residential Design</h3>
+                    <p class="text-gray-600 mb-6">Create stunning living spaces that reflect your personal style and
+                        enhance your daily life.</p>
+                        <a href="#contact">
+                    <button class="text-yellow-600 hover:text-yellow-700 font-semibold flex items-center group">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </a>
+                </div>
+
+                <div
+                    class="service-card bg-gradient-to-br from-yellow-50 to-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm12 12V6H4v10h12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Commercial Spaces</h3>
+                    <p class="text-gray-600 mb-6">Design functional and inspiring workspaces that boost productivity and
+                        impress clients.</p>
+                        <a href="#contact">
+                    <button class="text-yellow-600 hover:text-yellow-700 font-semibold flex items-center group">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </a>
+                </div>
+
+                <div
+                    class="service-card bg-gradient-to-br from-yellow-50 to-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Space Planning</h3>
+                    <p class="text-gray-600 mb-6">Optimize your space layout for maximum functionality and aesthetic
+                        appeal.</p>
+                        <a href="#contact">
+                    <button class="text-yellow-600 hover:text-yellow-700 font-semibold flex items-center group">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+
+    <section id="portfolio" class="py-20 bg-gradient-to-b from-yellow-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Recent Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore our latest interior design transformations
+                    that showcase our expertise and creativity.</p>
+            </div>
+            <!-- Project Image Carousel -->
+            <section id="projects" class="my-20">
+                <div class="w-full">
+                    <div id="gallery" class="relative w-full overflow-hidden rounded-none" data-carousel="slide">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+                            <!-- Item 1 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                                <img src="./Assets/project/01.jpg"
+                                    class="w-full h-full object-cover" alt="Project 1">
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="./Assets/project/02.jpg"
+                                    class="w-full h-full object-cover" alt="Project 2">
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="./Assets/project/03.jpg"
+                                    class="w-full h-full object-cover" alt="Project 3">
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="./Assets/project/04.jpg"
+                                    class="w-full h-full object-cover" alt="Project 4">
+                            </div>
+                            <!-- Item 5 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="./Assets/project/05.jpg"
+                                    class="w-full h-full object-cover" alt="Project 5">
+                            </div>
+                        </div>
+            
+                        <!-- Controls -->
+                        <button type="button"
+                            class="absolute top-1/2 left-4 z-30 flex items-center justify-center -translate-y-1/2 p-2 bg-white/70 hover:bg-white rounded-full shadow-md"
+                            data-carousel-prev>
+                            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button type="button"
+                            class="absolute top-1/2 right-4 z-30 flex items-center justify-center -translate-y-1/2 p-2 bg-white/70 hover:bg-white rounded-full shadow-md"
+                            data-carousel-next>
+                            <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+
+
+          
+
+            <div class="text-center mt-12">
+              <a href="https://www.instagram.com/sneharch_design_studio/"
+                
+              <button
+                    class="bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+                    View All Projects
+                </button>
+            </a>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Video Gallery Section -->
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Project Highlights</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          A glimpse into our latest interior transformations. Watch, explore, and experience design that speaks.
+        </p>
+      </div>
+  
+      <!-- 3x3 Video Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Video Card -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="relative w-full" style="padding-top: 177.78%;">
+            <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+              src="https://www.youtube.com/embed/S0TPUCsikYw"
+              title="YouTube Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">Complete Home Tour</h3>
+            <p class="text-sm text-gray-600">Full transformation showcase</p>
+          </div>
+        </div>
+  
+        <!-- Repeat this block 8 more times with different video links -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="relative w-full" style="padding-top: 177.78%;">
+            <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
+              src="https://www.youtube.com/embed/UkKZTeGCfOw"
+              title="YouTube Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">Lighting Design</h3>
+            <p class="text-sm text-gray-600">Sleek & elegant lighting for every mood</p>
+          </div>
+        </div>
+  
+        <!-- Continue adding 7 more video cards like this with different videos -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="relative w-full" style="padding-top: 177.78%;">
+                <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/-cni39jeRDI"
+                    title="YouTube Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-1">Arches</h3>
+                <p class="text-sm text-gray-600">Showcasing all the arches in recent projects</p>
+            </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="relative w-full" style="padding-top: 177.78%;">
+                    <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/hNY51RT-7lc"
+                        title="YouTube Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen loading="lazy"></iframe>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Design to delivered</h3>
+                    <p class="text-sm text-gray-600">Watch the designs come alive</p>
+                </div></div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative w-full" style="padding-top: 177.78%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/nUfZqDV28_0"
+                            title="YouTube Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Unfold Your Office</h3>
+                        <p class="text-sm text-gray-600">Sleek & smart solutions for saving space</p>
+                    </div>    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="relative w-full" style="padding-top: 177.78%;">
+                            <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/gxLSLHplAFs"
+                                title="YouTube Video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-1">Unfold Your Dining Experience</h3>
+                            <p class="text-sm text-gray-600">Elegant dining table that can be tucked away with ease</p>
+                        </div>        </div>
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="relative w-full" style="padding-top: 177.78%;">
+                                <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/vXzA4WZsAiY"
+                                    title="YouTube Video" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">Hide & Chic</h3>
+                                <p class="text-sm text-gray-600">Smart storage done right</p>
+                            </div>            </div>
+                            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div class="relative w-full" style="padding-top: 177.78%;">
+                                    <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/gxLSLHplAFs"
+                                        title="YouTube Video" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen loading="lazy"></iframe>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-1">Design Reveal</h3>
+                                    <p class="text-sm text-gray-600">Sleek & smart interior upgrade</p>
+                                </div>                </div>
+                                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                                    <div class="relative w-full" style="padding-top: 177.78%;">
+                                        <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/2R3NFgnRr3Y"
+                                            title="YouTube Video" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen loading="lazy"></iframe>
+                                    </div>
+                                    <div class="p-4">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Final Results</h3>
+                                        <p class="text-sm text-gray-600">A peek at recently completed project</p>
+                                    </div>                    </div>
+      </div>
+  
+      <!-- CTA -->
+      <div class="text-center mt-12">
+        <a href="https://www.instagram.com/sneharch_design_studio/"
+          class="inline-block bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-8 py-3 rounded-lg transition">
+          View More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+  
+<script>
+    // Intersection Observer for lazy loading videos
+    const observerOptions = {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+    };
+
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target.querySelector('iframe');
+                if (iframe && !iframe.src) {
+                    iframe.src = iframe.dataset.src;
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all video containers
+    document.querySelectorAll('.video-container').forEach(container => {
+        videoObserver.observe(container);
+    });
+
+    // Add loading animation while videos load
+    document.querySelectorAll('iframe').forEach(iframe => {
+        iframe.addEventListener('load', function () {
+            this.parentElement.classList.remove('video-skeleton');
+        });
+    });
+
+    // Handle responsive grid adjustments
+    function adjustGridLayout() {
+        const grid = document.querySelector('.grid');
+        const width = window.innerWidth;
+
+        if (width < 640) {
+            // Mobile: 1 column
+            grid.className = grid.className.replace(/grid-cols-\d+/g, 'grid-cols-1');
+        } else if (width < 1024) {
+            // Tablet: 2 columns
+            grid.className = grid.className.replace(/grid-cols-\d+/g, 'grid-cols-2');
+        } else {
+            // Desktop: 3 columns
+            grid.className = grid.className.replace(/grid-cols-\d+/g, 'grid-cols-3');
+        }
+    }
+
+    // Listen for window resize
+    window.addEventListener('resize', adjustGridLayout);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(adjustGridLayout, 100);
+    });
+
+    // Initial layout adjustment
+    adjustGridLayout();
+</script>
+
+
+
+
+    <!-- About Section with Founders Slider -->
+
+
+
+
+
+    <!-- Carousel Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Heading -->
+            <div class="mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900">Our Founders</h2>
+            </div>
+    
+            <!-- Carousel Container -->
+            <div id="founder-carousel" class="relative w-full">
+                <!-- Slides Wrapper -->
+                <div class="relative min-h-[500px] sm:min-h-[600px] lg:min-h-[600px] overflow-hidden rounded-lg">
+                    <!-- Slide 1: Sneha -->
+                    <div class="carousel-slide duration-700 ease-in-out transition-transform translate-x-0" data-slide="0">
+                        <div class="flex flex-col lg:grid lg:grid-cols-2 gap-10 items-center py-8 lg:py-0">
+                            <div class="order-2 lg:order-1">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-1">Sneha</h3>
+                                <p class="text-lg text-gray-600 mb-4">Principal Architect</p>
+                                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                    Sneha is the creative force behind Sneharch's signature design language. With over a
+                                    decade of experience in residential and commercial architecture, she brings a unique
+                                    blend of contemporary aesthetics and functional innovation to every project.
+                                </p>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    Her eye for materiality, balance, and detail ensures every space is both personal
+                                    and poetic.
+                                </p>
+                            </div>
+                            <div class="order-1 lg:order-2 flex justify-center">
+                                <div
+                                    class="w-64 h-80 sm:w-80 sm:h-96 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-xl flex items-center justify-center">
+                                    <img src="./Assets/founders/sneha.jpeg" alt="Sneha's Photo"
+                                        class="h-full w-full object-cover rounded-xl" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+    
+                    <!-- Slide 2: Varad -->
+                    <div class="carousel-slide absolute inset-0 duration-700 ease-in-out transition-transform translate-x-full"
+                        data-slide="1">
+                        <div class="flex flex-col lg:grid lg:grid-cols-2 gap-10 items-center h-full py-8 lg:py-0">
+                            <div class="order-2 lg:order-1">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-1">Varad</h3>
+                                <p class="text-lg text-gray-600 mb-4">Execution Head</p>
+                                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                    Varad leads Sneharch's on-ground operations with precision and clarity. His
+                                    expertise in project management and construction oversight ensures seamless
+                                    execution from concept to completion.
+                                </p>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    From contractor coordination to final walkthroughs, Varad ensures the design vision
+                                    is delivered to the last detail.
+                                </p>
+                            </div>
+                            <div class="order-1 lg:order-2 flex justify-center">
+                                <div
+                                    class="w-64 h-80 sm:w-80 sm:h-96 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-xl flex items-center justify-center">
+                                    <img src="./Assets/founders/varad.jpeg" alt="Varad's Photo"
+                                        class="h-full w-full object-cover rounded-xl" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Navigation Buttons -->
+                <div class="mt-10 flex justify-center gap-6">
+                    <button type="button" id="prevBtn"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-300 hover:bg-yellow-400 transition-colors duration-200">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+    
+                    <button type="button" id="nextBtn"
+                        class="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-300 hover:bg-yellow-400 transition-colors duration-200">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <!-- Slide Indicators -->
+                <div class="flex justify-center mt-4 space-x-2">
+                    <button class="indicator w-3 h-3 rounded-full bg-yellow-400 transition-colors duration-200"
+                        data-slide="0"></button>
+                    <button
+                        class="indicator w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-200"
+                        data-slide="1"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <script>
+        class Carousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.totalSlides = this.slides.length;
+
+                this.init();
+            }
+
+            init() {
+                // Add event listeners
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
+
+                // Add indicator event listeners
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Auto-play (optional - uncomment to enable)
+                // setInterval(() => this.nextSlide(), 5000);
+            }
+
+            updateSlides() {
+                this.slides.forEach((slide, index) => {
+                    if (index === this.currentSlide) {
+                        slide.style.transform = 'translateX(0)';
+                    } else if (index < this.currentSlide) {
+                        slide.style.transform = 'translateX(-100%)';
+                    } else {
+                        slide.style.transform = 'translateX(100%)';
+                    }
+                });
+
+                // Update indicators
+                this.indicators.forEach((indicator, index) => {
+                    if (index === this.currentSlide) {
+                        indicator.classList.remove('bg-gray-300');
+                        indicator.classList.add('bg-yellow-400');
+                    } else {
+                        indicator.classList.remove('bg-yellow-400');
+                        indicator.classList.add('bg-gray-300');
+                    }
+                });
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlides();
+            }
+
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlides();
+            }
+
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                this.updateSlides();
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel();
+        });
+    </script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-yellow-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to transform your space? Let's discuss your project and bring your vision to life.
+                </p>
+            </div>
+    
+            <!-- Two column layout -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- FORM -->
+                <form class="space-y-6"
+                    action="https://script.google.com/macros/s/AKfycbyDbKJ1seE7Zhz8l88dcig5q5uWOctFsgXJj9qfb4FuqOzKp9oXAdQVjZMcz1qempTArw/exec"
+                    method="POST">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" name="first_name" placeholder="First Name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400" />
+                        <input type="text" name="last_name" placeholder="Last Name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400" />
+                    </div>
+    
+                    <input type="email" name="email" placeholder="Email Address"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400" />
+                    <input type="tel" name="phone" placeholder="Phone Number"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400" />
+    
+                    <select name="project_type"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400">
+                        <option value="">Select Project Type</option>
+                        <option>Residential Design</option>
+                        <option>Commercial Space</option>
+                        <option>Space Planning</option>
+                        <option>Consultation</option>
+                    </select>
+    
+                    <textarea name="message" rows="5" placeholder="Tell us about your project..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400"></textarea>
+    
+                    <button type="submit"
+                        class="w-full bg-yellow-400 hover:bg-yellow-500 text-white py-4 rounded-lg text-lg font-semibold transition-all">
+                        Send Message
+                    </button>
+                </form>
+    
+                <!-- CONTACT INFO -->
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center mr-4">
+                                    <!-- Location Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Address</div>
+                                    <div class="text-gray-600">123 Design Avenue, Creative District, NY 10001</div>
+                                </div>
+                            </div>
+    
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center mr-4">
+                                    <!-- Phone Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Phone</div>
+                                    <div class="text-gray-600">+1 (555) 123-4567</div>
+                                </div>
+                            </div>
+    
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center mr-4">
+                                    <!-- Email Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-gray-900">Email</div>
+                                    <div class="text-gray-600">hello@luxespace.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-bold mb-4">
+                        <span class="text-yellow-400">Sneharch</span> <span>Design</span> Studio
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Transforming spaces into extraordinary experiences through innovative design and unparalleled
+                        craftsmanship.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Residential Design</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Commercial Spaces</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Space Planning</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Consultation</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Sneharch Design Stduio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Header background change on scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and portfolio items
+        document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Simple validation
+            const requiredFields = ['firstName', 'email'];
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                const input = this.querySelector(`[name="${field}"]`);
+                if (!input || !input.value.trim()) {
+                    isValid = false;
+                    if (input) {
+                        input.classList.add('border-red-500');
+                        setTimeout(() => input.classList.remove('border-red-500'), 3000);
+                    }
+                }
+            });
+
+            if (isValid) {
+                // Show success message
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Message Sent!';
+                submitBtn.classList.add('bg-green-500');
+                submitBtn.classList.remove('bg-yellow-400', 'hover:bg-yellow-500');
+
+                // Reset form
+                this.reset();
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.classList.remove('bg-green-500');
+                    submitBtn.classList.add('bg-yellow-400', 'hover:bg-yellow-500');
+                }, 3000);
+            }
+        });
+
+        // Add hover effects to portfolio items
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-8px)';
+            });
+
+            item.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add floating animation delay to elements
+        const floatingElements = document.querySelectorAll('[class*="animate-float"]');
+        floatingElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.5}s`;
+        });
+    </script>
+</body>
+
+</html>

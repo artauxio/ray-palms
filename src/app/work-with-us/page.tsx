@@ -1,7 +1,7 @@
 import React from "react";
-import GetInTouchForm from "@/components/GetInTouchForm";
+import GetInTouchForm from "../../components/GetInTouchForm";
 
-const WorkWithUsPage = () => {
+const WorkWithUsPage: React.FC = () => {
   return (
     <main className="space-y-0">
       <GetInTouchForm title="For Jobs" nameLabel="Full Name" />

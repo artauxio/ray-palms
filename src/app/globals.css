@@ -121,10 +121,20 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    /* fix horizontal scroll */
+    max-width: 100%;
+  }
+
+  html {
+    overflow-x: hidden;
+    /* prevent right-side white strip */
+    max-width: 100%;
   }
 }
 
@@ -132,20 +142,23 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Assuming you are using Tailwind in CSS file with PostCSS */
+/* Swiper buttons - made responsive */
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  @apply rounded-full w-24 h-14 p-4 flex items-center justify-center z-30;
-  background-color: #e4e2dc; /* Warm neutral beige */
-  color: #485e4c; /* Deep olive green */
-  font-size: 1rem; /* text-base */
+  @apply rounded-full w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-14 p-4 flex items-center justify-center z-30;
+  background-color: #e4e2dc;
+  /* Warm neutral beige */
+  color: #485e4c;
+  /* Deep olive green */
+  font-size: 0.875rem;
+  /* base size */
   z-index: 9999;
 }
 
 .swiper-button-prev {
-  @apply ml-8;
+  @apply ml-2 sm:ml-4 md:ml-8;
 }
 
 .swiper-button-next {
-  @apply mr-8;
+  @apply mr-2 sm:mr-4 md:mr-8;
 }

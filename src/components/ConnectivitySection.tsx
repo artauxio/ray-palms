@@ -39,7 +39,7 @@ const connectivityData = [
     distance: "Parks, Beaches, natural beauty of Palghar. Waghoba Waterfall, Kelva Beach, Shirgaon Fort, Mahin Beach",
   },
   {
-    icon: Film ,
+    icon: Film,
     title: "Movie Theatre",
     distance: "Gold Cinema, Palghar: 10 mins from project",
   },
@@ -79,7 +79,7 @@ const ConnectivitySection: React.FC = () => {
             Connectivity
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
             {connectivityData.map((item, index) => {
               const IconComponent = item.icon;
               return (
@@ -99,6 +99,17 @@ const ConnectivitySection: React.FC = () => {
                 </div>
               );
             })}
+          </div>
+
+          {/* Map Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="col-span-full">
+              <img 
+                src="/images/map.svg" 
+                alt="Location Map" 
+                className="w-full h-auto rounded-2xl shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>

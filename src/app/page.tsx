@@ -3,10 +3,11 @@ import ResidentialOne from "../../public/images/banner-one.webp";
 import ResidentialTwo from "../../public/images/banner-two.webp";
 import ResidentialThree from "../../public/images/banner-three.webp";
 import ResidentialFour from "../../public/images/banner-four.webp";
+import InfoCard from "@/components/InfoCard";
 import ProjectInfoSection from "@/components/ProjectInfoSection";
-import AmenitiesSection from "@/components/AmenitiesSection";
 import GalleryCarousel from "@/components/Carousel/GalleryCarousel";
 import FloorPlans from "@/components/FloorPlans";
+import PhotoGallery from "@/components/PhotoGallery";
 import ConnectivitySection from "@/components/ConnectivitySection";
 import EMICalculator from "@/components/EMICalculator";
 import GoogleMapLocation from "@/components/GoogleMapLocation";
@@ -39,16 +40,18 @@ export default function Home() {
   return (
     <>
       <PhotoCarousel images={images} height="md:h-[700px] h-[350px]" />
+     <section id=" project info" className="scroll-mt-24"><InfoCard /></section>
+      
       <ProjectInfoSection />
-      <section id="amenities" className="scroll-mt-24">
-        <AmenitiesSection />
-      </section>
+      
       <section id="gallery" className="scroll-mt-24">
         <GalleryCarousel />
       </section>
+      <PhotoGallery /> 
       <FloorPlans />
       <EMICalculator />
       <ConnectivitySection />
+      
       <GoogleMapLocation />
       <section id="contact">
         <GetInTouchForm />

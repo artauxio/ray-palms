@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import Container from "./Container";
 import AccessFormModal from "./AccessFormModal";
@@ -9,12 +9,31 @@ import AccessFormModal from "./AccessFormModal";
 // Accent colors for pie chart (you may adjust if you want)
 const COLORS = ["#5b6c55", "#ef4444"]; // keeping red as is for interest/red highlight
 
+// Consistent number formatting function
+const formatCurrency = (amount: number): string => {
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
+
+const formatNumber = (num: number): string => {
+  return new Intl.NumberFormat('en-IN').format(num);
+};
+
 const EMICalculator = () => {
   const [loanAmount, setLoanAmount] = useState(8000000);
   const [interestRate, setInterestRate] = useState(5.05);
   const [tenure, setTenure] = useState(9);
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const rate = interestRate / (12 * 100);
   const time = tenure * 12;
@@ -39,6 +58,29 @@ const EMICalculator = () => {
       setter(Number(e.target.value));
     };
 
+  // Show loading state during hydration
+  if (!isClient) {
+    return (
+      <div className="bg-[#e4e2dc] py-10">
+        <h2 className="text-3xl font-bold text-[#485e4c] text-center mb-8 underline decoration-[#5b6c55] underline-offset-4">
+          Calculate your EMI for Home Loan
+        </h2>
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="animate-pulse bg-gray-300 h-20 rounded"></div>
+              <div className="animate-pulse bg-gray-300 h-20 rounded"></div>
+              <div className="animate-pulse bg-gray-300 h-20 rounded"></div>
+            </div>
+            <div className="bg-[#f0f0ec] rounded-xl shadow-md p-6 border border-[#bebfbc]">
+              <div className="animate-pulse bg-gray-300 h-40 rounded"></div>
+            </div>
+          </div>
+        </Container>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-[#e4e2dc] py-10">
       <h2 className="text-3xl font-bold text-[#485e4c] text-center mb-8 underline decoration-[#5b6c55] underline-offset-4">
@@ -62,7 +104,7 @@ const EMICalculator = () => {
                 className="w-full accent-[#485e4c]"
               />
               <div className="text-[#5b6c55] font-bold mt-1">
-                ₹{loanAmount.toLocaleString()}
+                {formatCurrency(loanAmount)}
               </div>
             </div>
 
@@ -108,7 +150,7 @@ const EMICalculator = () => {
               EMI AMOUNT
             </div>
             <div className="text-3xl font-bold text-[#485e4c] mb-6">
-              ₹{emi.toFixed(0)}/month
+              {formatCurrency(Math.round(emi))}/month
             </div>
 
             <ResponsiveContainer width="100%" height={180}>
@@ -133,11 +175,11 @@ const EMICalculator = () => {
             <div className="flex justify-between text-sm mt-4">
               <div>
                 <div className="font-semibold text-[#485e4c]">PRINCIPAL AMOUNT</div>
-                <div>₹{loanAmount.toLocaleString()}</div>
+                <div>{formatCurrency(loanAmount)}</div>
               </div>
               <div>
                 <div className="font-semibold text-[#ef4444]">INTEREST AMOUNT</div>
-                <div>₹{totalInterest.toFixed(0).toLocaleString()}</div>
+                <div>{formatCurrency(Math.round(totalInterest))}</div>
               </div>
             </div>
 
@@ -146,7 +188,7 @@ const EMICalculator = () => {
             <div className="text-center">
               <div className="text-[#9ca098] text-sm">TOTAL AMOUNT PAYABLE</div>
               <div className="text-2xl font-bold text-[#485e4c]">
-                ₹{totalPayment.toFixed(0).toLocaleString()}
+                {formatCurrency(Math.round(totalPayment))}
               </div>
             </div>
           </div>

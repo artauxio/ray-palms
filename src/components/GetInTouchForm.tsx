@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import Container from "./Container";
@@ -81,20 +82,22 @@ const GetInTouchForm = ({
     try {
       setIsSubmitting(true);
       const scriptUrl =
-        "https://script.google.com/macros/s/AKfycbyVIyvy1UxhjbTsDQgHIcb_9S2OZuV-GIes8I-PX7VbY3evebE2ipzLm5FntW_DJdKl-A/exec";
+        "https://script.google.com/macros/s/AKfycbxvPOI0h7Bq2CK52crX0L3R9ODZUh6ZoJFEbzvJ0CcWnULrViQ5ys57l-3emZhPR1dV/exec";
+
+      const formBody = new URLSearchParams();
+      formBody.append("formType", "Get In Touch");
+      formBody.append("fullName", formData.fullName);
+      formBody.append("phoneNumber", formData.phoneNumber);
+      formBody.append("email", formData.email);
+      formBody.append("city", formData.city);
+      formBody.append("message", formData.message);
 
       await fetch(scriptUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          phoneNumber: formData.phoneNumber,
-          email: formData.email,
-          city: formData.city,
-          message: formData.message,
-        }),
+        body: formBody,
         mode: "no-cors",
       });
 

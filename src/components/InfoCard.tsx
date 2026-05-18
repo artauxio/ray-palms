@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, MouseEvent } from "react";
 
 // Optional: Define a type for info item if you want
@@ -14,7 +15,6 @@ const infoItems: InfoItem[] = [
 ];
 
 // A small helper component for 3D tilt
-
 export const TiltCard: React.FC<{ item: InfoItem }> = ({ item }) => {
   // state to track rotation angles
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -57,3 +57,23 @@ export const TiltCard: React.FC<{ item: InfoItem }> = ({ item }) => {
     </div>
   );
 };
+
+// Main InfoCard component (this is what gets imported as default)
+const InfoCard = () => {
+  return (
+    <section className="bg-[#e4e2dc] py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 className="text-center text-4xl font-bold text-[#485e4c] mb-10">
+          Project Information
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {infoItems.map((item, index) => (
+            <TiltCard key={index} item={item} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default InfoCard;
