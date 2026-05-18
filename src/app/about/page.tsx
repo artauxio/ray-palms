@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { Zap, Users, Briefcase, Settings, Brain, Shield, DollarSign, BarChart3, Clock, CheckCircle2, MessageSquare, FileText, Search, Video, Calendar, TrendingUp } from 'lucide-react';
 
@@ -137,7 +138,7 @@ export default function MiroBoard() {
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-0.5">▸</span>
-                  <span>"I'm Interested" quick action</span>
+                  <span>&quot;I&apos;m Interested&quot; quick action</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 mt-0.5">▸</span>
@@ -516,4 +517,37 @@ export default function MiroBoard() {
 
         {/* Technology Stack */}
         <div className="mb-20">
-          <div className="inline-block bg-gradient-to-
+          <div className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-bold text-lg mb-8 shadow-lg">
+            💻 Tech Stack
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const StickyNote = ({ color, icon, title, children }: any) => {
+  return (
+    <div className={`p-6 rounded-xl shadow-sm bg-white border-2 border-gray-200`}>
+      <div className="flex items-center gap-3 mb-4 text-gray-800">
+        {icon}
+        <h3 className="text-xl font-bold">{title}</h3>
+      </div>
+      {children}
+    </div>
+  );
+};
+
+const LargeCard = ({ color, icon, title, children }: any) => {
+  return (
+    <div className={`p-8 rounded-2xl bg-white border-4 shadow-lg border-gray-200`}>
+      <div className="flex items-center gap-4 mb-6 text-gray-800">
+        <div className={`p-3 rounded-lg bg-gray-100`}>
+          {icon}
+        </div>
+        <h3 className="text-2xl font-bold">{title}</h3>
+      </div>
+      {children}
+    </div>
+  );
+};
